@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo博客各种插件安装和问题解惑, 二层楼">
+    <meta name="keywords" content="honggfuzz_问题解惑, 二层楼">
     <meta name="description" content="荒原初见，悠悠我心，雪夜红墙，要你欢喜">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo博客各种插件安装和问题解惑 | 二层楼</title>
+    <title>honggfuzz_问题解惑 | 二层楼</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -403,12 +403,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo博客各种插件安装和问题解惑</h1>
+                    <h1 class="description center-align post-title">honggfuzz_问题解惑</h1>
                 </div>
             </div>
         </div>
@@ -522,17 +522,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
-                            </a>
-                        
-                            <a href="/tags/%E8%A7%A3%E6%83%91/">
-                                <span class="chip bg-color">解惑</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -544,7 +536,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-17
+                    2021-01-20
                 </div>
                 
 
@@ -565,29 +557,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="hexo-问题解惑-amp-amp-各种插件安装"><a href="#hexo-问题解惑-amp-amp-各种插件安装" class="headerlink" title="hexo 问题解惑&amp;&amp;各种插件安装"></a>hexo 问题解惑&amp;&amp;各种插件安装</h2><p>summer13</p>
-<h3 id="一，高亮"><a href="#一，高亮" class="headerlink" title="一，高亮"></a>一，高亮</h3><p>由于 Hexo 自带的代码高亮主题显示不好看，所以主题中使用到了 hexo-prism-plugin 的 Hexo 插件来做代码高亮，安装命令如下：</p>
-<p>bash<br>npm i -S hexo-prism-plugin<br>然后，修改 Hexo 根目录下 _config.yml 文件中 highlight.enable 的值为 false，并新增 prism 插件相关的配置，主要配置如下：</p>
-<p>highlight:<br>  enable: false</p>
-<p>prism_plugin:<br>  mode: ‘preprocess’    # realtime/preprocess<br>  theme: ‘tomorrow’<br>  line_number: false    # default false<br>  custom_css:</p>
-<h3 id="二，搜索"><a href="#二，搜索" class="headerlink" title="二，搜索"></a>二，搜索</h3><p>本主题中还使用到了 hexo-generator-search 的 Hexo 插件来做内容搜索，安装命令如下：</p>
-<p>bash<br>npm install hexo-generator-search –save<br>在 Hexo 根目录下的 _config.yml 文件中，新增以下的配置项：</p>
-<p>yaml<br>search:<br>  path: search.xml<br>  field: post</p>
-<h3 id="三，中文链接转拼音（可选的）"><a href="#三，中文链接转拼音（可选的）" class="headerlink" title="三，中文链接转拼音（可选的）"></a>三，中文链接转拼音（可选的）</h3><p>如果你的文章名称是中文的，那么 Hexo 默认生成的永久链接也会有中文，这样不利于 SEO，且 gitment 评论对中文链接也不支持。我们可以用 hexo-permalink-pinyin Hexo 插件使在生成文章时生成中文拼音的永久链接。</p>
-<p>安装命令如下：</p>
-<p>bash<br>npm i hexo-permalink-pinyin –save<br>在 Hexo 根目录下的 _config.yml 文件中，新增以下的配置项：</p>
-<p>yaml<br>permalink_pinyin:<br>  enable: true<br>  separator: ‘-‘ # default: ‘-‘</p>
-<h3 id="四，文章字数统计插件（可选的）"><a href="#四，文章字数统计插件（可选的）" class="headerlink" title="四，文章字数统计插件（可选的）"></a>四，文章字数统计插件（可选的）</h3><p>如果你想要在文章中显示文章字数、阅读时长信息，可以安装 hexo-wordcount插件。</p>
-<p>安装命令如下：</p>
-<p>bash<br>npm i –save hexo-wordcount<br>然后只需在本主题下的 _config.yml 文件中，激活以下配置项即可：</p>
-<p>yaml<br>wordCount:<br>  enable: false # 将这个值设置为 true 即可.<br>  postWordCount: true<br>  min2read: true<br>  totalCount: true</p>
-<h3 id="五，添加-RSS-订阅支持（可选的）"><a href="#五，添加-RSS-订阅支持（可选的）" class="headerlink" title="五，添加 RSS 订阅支持（可选的）"></a>五，添加 RSS 订阅支持（可选的）</h3><p>本主题中还使用到了 hexo-generator-feed 的 Hexo 插件来做 RSS，安装命令如下：</p>
-<p>bash<br>npm install hexo-generator-feed –save<br>在 Hexo 根目录下的 _config.yml 文件中，新增以下的配置项：</p>
-<p>yaml<br>feed:<br>  type: atom<br>  path: atom.xml<br>  limit: 20<br>  hub:<br>  content:<br>  content_limit: 140<br>  content_limit_delim: ‘ ‘<br>  order_by: -date<br>执行 hexo clean &amp;&amp; hexo g 重新生成博客文件，然后在 public 文件夹中即可看到 atom.xml 文件，说明你已经安装成功了。</p>
-<h3 id="六，hexo可视化编辑"><a href="#六，hexo可视化编辑" class="headerlink" title="六，hexo可视化编辑"></a>六，hexo可视化编辑</h3><p>先安装hexo admin</p>
-<p>npm install –save hexo-admin</p>
-<p>安装完成后启动服务</p>
-<p>hexo server -d<br>然后打开localhost:4000/admin/就可以了然后打开</p>
+                <h2 id="honggfuzz-安装常遇到的问题"><a href="#honggfuzz-安装常遇到的问题" class="headerlink" title="honggfuzz 安装常遇到的问题"></a>honggfuzz 安装常遇到的问题</h2><h5 id="解惑方法一"><a href="#解惑方法一" class="headerlink" title="解惑方法一"></a>解惑方法一</h5><p>问题一：</p>
+<p>linux/bfd.c:28:10: fatal error: bfd.h: No such file or directory<br> #include &lt;bfd.h&gt;<br>          ^~~~~~~<br>compilation terminated.<br>Makefile:259: recipe for target ‘linux/bfd.o’ failed<br>make: *** [linux/bfd.o] Error 1</p>
+<p>这是因为没有 binutils-dev</p>
+<p>apt-get install binutils-dev</p>
+<p>问题二：</p>
+<p>linux/unwind.c:27:10: fatal error: libunwind-ptrace.h: No such file or directory<br> #include &lt;libunwind-ptrace.h&gt;<br>          ^~~~~~~~~~~~~~~~~~~~<br>compilation terminated.<br>Makefile:259: recipe for target ‘linux/unwind.o’ failed<br>make: *** [linux/unwind.o] Error 1</p>
+<p>如果提示以下错误，这是因为没有 libunwind-dev</p>
+<p>apt-get install libunwind-dev</p>
 
                 
             </div>
@@ -604,7 +581,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">13summer</a>
+                    <a href="/about" rel="external nofollow noreferrer">thirteensummer</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -614,7 +591,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://thirteensummer.github.io/2021/01/17/hexo-bo-ke-ge-chong-cha-jian-an-zhuang-he-wen-ti-jie-huo/">https://thirteensummer.github.io/2021/01/17/hexo-bo-ke-ge-chong-cha-jian-an-zhuang-he-wen-ti-jie-huo/</a>
+                    <a href="https://thirteensummer.github.io/2021/01/20/honggfuzz-wen-ti-jie-huo-1/">https://thirteensummer.github.io/2021/01/20/honggfuzz-wen-ti-jie-huo-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -627,7 +604,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">13summer</a>
+                    <a href="/about" target="_blank">thirteensummer</a>
                     !
                 </span>
             </div>
@@ -651,15 +628,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
-                                </a>
-                            
-                                <a href="/tags/%E8%A7%A3%E6%83%91/">
-                                    <span class="chip bg-color">解惑</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -831,13 +800,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/01/20/honggfuzz-wen-ti-jie-huo-1/">
+                <a href="/2021/03/23/kerberos-zhi-wei-suo-gong-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="honggfuzz_问题解惑">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="kerberos之猥琐攻击">
                         
-                        <span class="card-title">honggfuzz_问题解惑</span>
+                        <span class="card-title">kerberos之猥琐攻击</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -848,7 +817,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
                         </span>
                         <span class="publish-author">
                             
@@ -868,13 +837,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/16/wang-ye-bo-ke-jia-mi-de-ge-chong-zi-shi/">
+                <a href="/2021/01/17/hexo-bo-ke-ge-chong-cha-jian-an-zhuang-he-wen-ti-jie-huo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="网页博客加密的各种姿势">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="hexo博客各种插件安装和问题解惑">
                         
-                        <span class="card-title">网页博客加密的各种姿势</span>
+                        <span class="card-title">hexo博客各种插件安装和问题解惑</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -885,7 +854,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-17
                             </span>
                         <span class="publish-author">
                             
@@ -898,8 +867,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8A%A0%E5%AF%86/">
-                        <span class="chip bg-color">加密</span>
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%A7%A3%E6%83%91/">
+                        <span class="chip bg-color">解惑</span>
                     </a>
                     
                 </div>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo博客各种插件安装和问题解惑, 二层楼">
+    <meta name="keywords" content="kerberos之猥琐攻击, 二层楼">
     <meta name="description" content="荒原初见，悠悠我心，雪夜红墙，要你欢喜">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo博客各种插件安装和问题解惑 | 二层楼</title>
+    <title>kerberos之猥琐攻击 | 二层楼</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -403,12 +403,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo博客各种插件安装和问题解惑</h1>
+                    <h1 class="description center-align post-title">kerberos之猥琐攻击</h1>
                 </div>
             </div>
         </div>
@@ -522,17 +522,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
-                            </a>
-                        
-                            <a href="/tags/%E8%A7%A3%E6%83%91/">
-                                <span class="chip bg-color">解惑</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -544,7 +536,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-17
+                    2021-03-23
                 </div>
                 
 
@@ -565,30 +557,165 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="hexo-问题解惑-amp-amp-各种插件安装"><a href="#hexo-问题解惑-amp-amp-各种插件安装" class="headerlink" title="hexo 问题解惑&amp;&amp;各种插件安装"></a>hexo 问题解惑&amp;&amp;各种插件安装</h2><p>summer13</p>
-<h3 id="一，高亮"><a href="#一，高亮" class="headerlink" title="一，高亮"></a>一，高亮</h3><p>由于 Hexo 自带的代码高亮主题显示不好看，所以主题中使用到了 hexo-prism-plugin 的 Hexo 插件来做代码高亮，安装命令如下：</p>
-<p>bash<br>npm i -S hexo-prism-plugin<br>然后，修改 Hexo 根目录下 _config.yml 文件中 highlight.enable 的值为 false，并新增 prism 插件相关的配置，主要配置如下：</p>
-<p>highlight:<br>  enable: false</p>
-<p>prism_plugin:<br>  mode: ‘preprocess’    # realtime/preprocess<br>  theme: ‘tomorrow’<br>  line_number: false    # default false<br>  custom_css:</p>
-<h3 id="二，搜索"><a href="#二，搜索" class="headerlink" title="二，搜索"></a>二，搜索</h3><p>本主题中还使用到了 hexo-generator-search 的 Hexo 插件来做内容搜索，安装命令如下：</p>
-<p>bash<br>npm install hexo-generator-search –save<br>在 Hexo 根目录下的 _config.yml 文件中，新增以下的配置项：</p>
-<p>yaml<br>search:<br>  path: search.xml<br>  field: post</p>
-<h3 id="三，中文链接转拼音（可选的）"><a href="#三，中文链接转拼音（可选的）" class="headerlink" title="三，中文链接转拼音（可选的）"></a>三，中文链接转拼音（可选的）</h3><p>如果你的文章名称是中文的，那么 Hexo 默认生成的永久链接也会有中文，这样不利于 SEO，且 gitment 评论对中文链接也不支持。我们可以用 hexo-permalink-pinyin Hexo 插件使在生成文章时生成中文拼音的永久链接。</p>
-<p>安装命令如下：</p>
-<p>bash<br>npm i hexo-permalink-pinyin –save<br>在 Hexo 根目录下的 _config.yml 文件中，新增以下的配置项：</p>
-<p>yaml<br>permalink_pinyin:<br>  enable: true<br>  separator: ‘-‘ # default: ‘-‘</p>
-<h3 id="四，文章字数统计插件（可选的）"><a href="#四，文章字数统计插件（可选的）" class="headerlink" title="四，文章字数统计插件（可选的）"></a>四，文章字数统计插件（可选的）</h3><p>如果你想要在文章中显示文章字数、阅读时长信息，可以安装 hexo-wordcount插件。</p>
-<p>安装命令如下：</p>
-<p>bash<br>npm i –save hexo-wordcount<br>然后只需在本主题下的 _config.yml 文件中，激活以下配置项即可：</p>
-<p>yaml<br>wordCount:<br>  enable: false # 将这个值设置为 true 即可.<br>  postWordCount: true<br>  min2read: true<br>  totalCount: true</p>
-<h3 id="五，添加-RSS-订阅支持（可选的）"><a href="#五，添加-RSS-订阅支持（可选的）" class="headerlink" title="五，添加 RSS 订阅支持（可选的）"></a>五，添加 RSS 订阅支持（可选的）</h3><p>本主题中还使用到了 hexo-generator-feed 的 Hexo 插件来做 RSS，安装命令如下：</p>
-<p>bash<br>npm install hexo-generator-feed –save<br>在 Hexo 根目录下的 _config.yml 文件中，新增以下的配置项：</p>
-<p>yaml<br>feed:<br>  type: atom<br>  path: atom.xml<br>  limit: 20<br>  hub:<br>  content:<br>  content_limit: 140<br>  content_limit_delim: ‘ ‘<br>  order_by: -date<br>执行 hexo clean &amp;&amp; hexo g 重新生成博客文件，然后在 public 文件夹中即可看到 atom.xml 文件，说明你已经安装成功了。</p>
-<h3 id="六，hexo可视化编辑"><a href="#六，hexo可视化编辑" class="headerlink" title="六，hexo可视化编辑"></a>六，hexo可视化编辑</h3><p>先安装hexo admin</p>
-<p>npm install –save hexo-admin</p>
-<p>安装完成后启动服务</p>
-<p>hexo server -d<br>然后打开localhost:4000/admin/就可以了然后打开</p>
-
+                <h2 id="kerberos认证下的猥琐攻击手法"><a href="#kerberos认证下的猥琐攻击手法" class="headerlink" title="kerberos认证下的猥琐攻击手法"></a>kerberos认证下的猥琐攻击手法</h2><h3 id="1-0-黄金票据的原理和条件"><a href="#1-0-黄金票据的原理和条件" class="headerlink" title="1.0 黄金票据的原理和条件"></a>1.0 黄金票据的原理和条件</h3><p><img src="/images/pasted-0.png" alt="upload successful"></p>
+<p>黄金票据是伪造票据授予票据（TGT）。</p>
+<p>票据授予票据（TGT），也被称为认证票据</p>
+<p>黄金票据特点:</p>
+<p>1.与域控制器没有AS-REQ或AS-REP通信<br>2.需要krbtgt用户的hash（KDC Hash）<br>3.由于黄金票据是伪造的TGT，它作为TGS-REQ的一部分被发送到域控制器以获得服务票据<br>我们可以看一个图理解一下：</p>
+<p><img src="/images/pasted-1.png" alt="upload successful"></p>
+<p>Kerberos黄金票据是有效的TGT Kerberos票据，因为它是由域Kerberos帐户（KRBTGT）加密和签名的。TGT仅用于向域控制器上的KDC服务证明用户已被其他域控制器认证。TGT被KRBTGT密码散列加密并且可以被域中的任何KDC服务解密的。</p>
+<h6 id="黄金票据的条件要求："><a href="#黄金票据的条件要求：" class="headerlink" title="黄金票据的条件要求："></a>黄金票据的条件要求：</h6><p>1.域名称<br>2.域的SID值<br>3.域的KRBTGT账户NTLM密码哈希<br>4.伪造用户名<br>1.1 实战手法<br>我们这里在一台域服务器中抓取到了KRBTGT账户的账号密码（hash）</p>
+<p><img src="/images/pasted-2.png" alt="upload successful"></p>
+<p>那么这里我们可以直接使用cobalt strike来利用黄金票据</p>
+<p><img src="/images/pasted-3.png" alt="upload successful"></p>
+<p>填入必须值</p>
+<p><img src="/images/pasted-4.png" alt="upload successful"></p>
+<p>就可以了</p>
+<p><img src="/images/pasted-5.png" alt="upload successful"></p>
+<p>在TGT的使用期限超过20分钟之前，域控制器KDC服务不会验证TGT中的用户帐户，这意味着我们可以使用已禁用/删除的帐户，甚至可以使用Active Directory中不存在的虚构帐户。</p>
+<p>由于在域控制器上由KDC服务生成票证时会在票证上设置域Kerberos策略，因此当提供票证时，系统会信任票证的有效性。这意味着即使域策略声明Kerberos登录票证（TGT）仅有效期为10个小时，如果票证声明其有效期为10年，则是10年。</p>
+<p>该KRBTGT帐户密码从不更改*和直到KRBTGT密码被更改（两次），我们可以创建黄金票据。注意，即使模拟的用户更改了密码，为模拟用户而创建的黄金票据也会保留。</p>
+<p>黄金票据可以绕过了SmartCard身份验证要求，因为它绕过了DC在创建TGT之前执行的常规检查。</p>
+<p>黄金票证（TGT）可以在任何计算机上生成和使用，即使其中一台未加入域也是可以的。</p>
+<p>当然我们也可以使用Mimikatz伪造Kerberos票证：</p>
+<p>1.2 Mimikatz命令示例：<br>kerberos :: golden / admin：ADMIINACCOUNTNAME / domain：DOMAINFQDN / id：ACCOUNTRID / sid：DOMAINSID / krbtgt：KRBTGTPASSWORDHASH / ptt</p>
+<p><img src="/images/pasted-6.png" alt="upload successful"></p>
+<p>Mimikatz创建黄金的命令是“kerberos :: golden”</p>
+<p>mimikatz “kerberos::golden /domain:&lt;域名&gt; /sid:&lt;域SID&gt; /rc4:<KRBTGT NTLM Hash> /user:&lt;任意用户名&gt; /ptt” exit</p>
+<p>/domain —–完整的域名，在这个例子中：“lab.adsecurity.org”</p>
+<p>/ sid —-域的SID,在这个例子中：“S-1-5-21-1473643419-774954089-2222329127”</p>
+<p>/ sids — AD森林中账户/组的额外SID，凭证拥有权限进行欺骗。通常这将是根域Enterprise Admins组的“S-1-5-21-1473643419-774954089-5872329127-519”值。Ť </p>
+<p> / user —伪造的用户名</p>
+<p>/ groups（可选）—用户所属的组RID（第一组是主组）。添加用户或计算机帐户RID以接收相同的访问权限。默认组：513,512,520,518,519为默认的管理员组。</p>
+<p>/ krbtgt—域KDC服务帐户（KRBTGT）的NTLM密码哈希值。用于加密和签署TGT。</p>
+<p>/ ticket（可选） - 提供一个路径和名称，用于保存Golden Ticket文件以便日后使用或使用/ ptt立即将黄金票据插入内存以供使用。</p>
+<p>/ ptt - 作为/ ticket的替代品 - 使用它来立即将伪造的票据插入到内存中以供使用。</p>
+<p>/ id（可选） - 用户RID。Mimikatz默认值是500（默认管理员帐户RID）。</p>
+<p>/ startoffset（可选） - 票据可用时的起始偏移量（如果使用此选项，通常设置为-10或0）。Mimikatz默认值是0。</p>
+<p>/ endin（可选） - 票据使用时间范围。Mimikatz默认值是10年（〜5,262,480分钟）。Active Directory默认Kerberos策略设置为10小时（600分钟）。</p>
+<p>/ renewmax（可选） - 续订最长票据有效期。Mimikatz默认值是10年（〜5,262,480分钟）。Active Directory默认Kerberos策略设置为7天（10,080分钟）。</p>
+<p>/ sids（可选） - 设置为AD林中企业管理员组（ADRootDomainSID）-519）的SID，以欺骗整个AD林（AD林中每个域中的AD管理员）的企业管理权限。</p>
+<p>/ aes128 - AES128密钥</p>
+<p>/ aes256 - AES256密钥</p>
+<p>黄金票默认组：</p>
+<p>域用户SID：S-1-5-21 <DOMAINID> -513</p>
+<p>域管理员SID：S-1-5-21 <DOMAINID> -512</p>
+<p>架构管理员SID：S-1-5-21 <DOMAINID> -518</p>
+<p>企业管理员SID：S-1-5-21 <DOMAINID> -519（只有在森林根域中创建伪造票证时才有效，但为AD森林管理员权限添加使用/ sids参数）</p>
+<p>组策略创建者所有者SID：S-1-5-21 <DOMAINID> -520</p>
+<p>命令格式如下：</p>
+<p>kerberos :: golden / user：ADMIINACCOUNTNAME / domain：DOMAINFQDN / id：ACCOUNTRID / sid：DOMAINSID / krbtgt：KRBTGTPASSWORDHASH / ptt</p>
+<p>命令示例：<br>.\mimikatz “kerberos::golden  /user:DarthVader  /domain:rd.lab.adsecurity.org  /id:500 /sid:S-1-5-21-135380161-102191138-581311202 /krbtgt:13026055d01f235d67634e109da03321  /ptt” exit</p>
+<h3 id="2-0-白银票据的原理和条件"><a href="#2-0-白银票据的原理和条件" class="headerlink" title="2.0 白银票据的原理和条件"></a>2.0 白银票据的原理和条件</h3><p>银票是伪造的票证授予服务票，也称为服务票。</p>
+<p>如下图所示，与域控制器之间没有AS-REQ / AS-REP（步骤1和2），也没有TGS-REQ / TGS-REP（步骤3和4）通信。由于白银票据是伪造的TGS，因此无法与域控制器通信。</p>
+<p><img src="/images/pasted-7.png" alt="upload successful"></p>
+<p>该Kerberos的银票是有效的票证授予服务（TGS）Kerberos票据，它是加密/通过与配置的服务帐户登录服务主体名称为每个服务器与Kerberos身份验证的服务运行。</p>
+<p>黄金票证是伪造的TGT，可有效访问任何Kerberos服务，而银票证是伪造的TGS。这意味着银票范围仅限于特定服务器上针对的任何服务。</p>
+<p>使用域Kerberos服务帐户（KRBTGT）对黄金票证进行加密/签名时，通过服务帐户（从计算机的本地SAM或服务帐户凭据中提取的计算机帐户凭据）对银票进行加密/签名。</p>
+<p>大多数服务不会验证PAC（通过将PAC校验和发送到域控制器以进行PAC验证），因此使用服务帐户密码哈希生成的有效TGS可以包含完全虚构的PAC-甚至声称用户是域管理员。</p>
+<p>TGS是伪造的，因此没有关联的TGT，这意味着不用链接DC，任何事件日志都位于目标服务器上。尽管范围比金牌更有限，但所需的哈希值更容易获得，并且在使用时与DC没有通信，因此检测比黄金票证更困难。</p>
+<p>2.1 条件<br>当拥有Server Hash时，我们就可以伪造一个不经过KDC认证的一个Ticket。</p>
+<p>/target –目标服务器的FQDN</p>
+<p>FQDN：(Fully Qualified Domain Name)全限定域名：同时带有主机名和域名的名称。（通过符号“.”）</p>
+<p>/service –运行在目标服务器上的kerberos服务，该服务主体名称类型如cifs，http，mssql等</p>
+<p>/rc4 –服务的NTLM散列（计算机帐户或用户帐户）</p>
+<blockquote>
+<p>PS:Server Session Key在未发送Ticket之前，服务器是不知道Server Session Key是什么的。<br>所以，一切凭据都来源于Server Hash。</p>
+</blockquote>
+<p>2.2 伪造白银票据(Silver Tickets)<br>首先需要导出Server Hash：</p>
+<p>管理员权限运行mimikatz</p>
+<p>mimikatz “privilege::debug” “sekurlsa::logonpasswords” “exit”  &gt; “C:\Users\Administrator.WEB\Desktop\1.txt”<br>privilege::debug #提升权限<br>sekurlsa::logonpasswords #获取service账户hash 和sid(同一个域下得sid一样)</p>
+<p>我这里在cobalt strike中演示</p>
+<p><img src="/images/pasted-8.png" alt="upload successful"></p>
+<p>空本地票据缓存</p>
+<p>kerberos::purge #清理本地票据缓存<br>kerberos::list #查看本地保存的票据</p>
+<p><img src="/images/pasted-9.png" alt="upload successful"></p>
+<p>伪造白银票据并导入</p>
+<p>mimikatz “kerberos::golden /domain:&lt;域名&gt; /sid:&lt;域 SID&gt; /target:&lt;目标服务器主机名&gt; /service:&lt;服务类型&gt; /rc4:<NTLM Hash> /user:&lt;用户名&gt; /ptt” exit</p>
+<p><img src="/images/pasted-10.png" alt="upload successful"></p>
+<p>Mimikatz命令示例：<br>/domain –完整的域名称，如：lab.adsecurity.org</p>
+<p>/sid –域的SID，如：S-1-5-21-1473643419-774954089-2222329127</p>
+<p>/user – 域用户名</p>
+<p>/ groups（可选） - 用户所属的组RID</p>
+<p>/ ticket（可选） - 提供一个路径和名称，用于保存Golden Ticket文件以便日后使用，或者使用/ ptt立即将黄金票据插入到内存中以供使用</p>
+<p> /ptt - 作为/ ticket的替代品，使用它来立即将伪造的票据插入到内存中以供使用。</p>
+<p>/ id（可选） - 用户RID，Mimikatz默认值是500（默认管理员帐户RID）</p>
+<p>/ startoffset（可选） - 票证可用时的起始偏移（如果使用此选项，通常设置为-10或0）Mimikatz默认值是0</p>
+<p>/ endin（可选） - 票据有效时间，Mimikatz默认值是10年，Active Directory默认Kerberos策略设置为10小时</p>
+<p>/ renewmax（可选） - 续订最长票据有效时间，Mimikatz默认值是10年，Active Directory默认Kerberos策略设置为最长为7天</p>
+<p> 白银票据默认组</p>
+<p>域用户SID：S-1-5-21 <DOMAINID> -513<br>域管理员SID：S-1-5-21 <DOMAINID> -512<br>架构管理员SID：S-1-5-21 <DOMAINID> -518<br>企业管理员SID：S-1-5-21 <DOMAINID> -519<br>组策略创建所有者SID：S-1-5-21 <DOMAINID> -520<br>白银票据在各种服务中的实列<br> Service Type                                  Service Silver Tickets<br> WMI                                           HOST RPCSS<br> PowerShell Remoting                           HOST  HTTP<br> WinRM                                         HOST  HTTP<br> Scheduled Tasks                               HOST<br> Windows File Share (CIFS)                     CIFS</p>
+<p> LDAP operations including<br> Mimikatz DCSync                               LDAP</p>
+<p> Windows Remote Server Administration Tools    RPCSS LDAP CIFS</p>
+<p>伪造Windows共享（CIFS）管理访问的银票</p>
+<p>通过为cifs服务创建白银票据，以获得目标计算机上任何Windows共享的管理权限</p>
+<h3 id="3-0-黄金票据和白银票据区别"><a href="#3-0-黄金票据和白银票据区别" class="headerlink" title="3.0 黄金票据和白银票据区别"></a>3.0 黄金票据和白银票据区别</h3><p>1.TGS ticket针对的是某个机器上的某个服务，TGT针对的是所有机器的所有服务<br>2.TGT利用krbtgt账户的hash，TGS ticket利用的是服务账户的hash（目标机的hash,以计算机名$显示的账户）</p>
+<p>黄金票据的实验结果：<br>能够在域里边所有机器上都以administrator登录</p>
+<p>白银票据的实验结果：<br>以前就能够psexec的，使用白银票据添加cifs为administrator权限后，能够在psexec之后以administrator登录</p>
+<p>以前就不能后动psexesvc的机器，实用白银票据添加cifs后，dir由无权查看变为有权查看</p>
+<p>hash位置<br>运行中的系统，需要从内存抓取-&gt;lassas.exe进程里边存放的是活动用户的hash（当前登录的用户）普通域用户或普通工作组：SAM文件（加密后的用户密码）/SYSTEM文件（秘钥）windows/system32/config/SAM存的是当前机器所用户的Hash</p>
+<p>域控：ntds.dit所有域用户的账号/密码（hash）</p>
+<h3 id="4-0-检测伪造的Kerberos票证"><a href="#4-0-检测伪造的Kerberos票证" class="headerlink" title="4.0 检测伪造的Kerberos票证"></a>4.0 检测伪造的Kerberos票证</h3><p>4.1 白银票据(Silver Tickets)防御<br>1.尽量保证服务器凭证不被窃取</p>
+<p>2.开启PAC (Privileged Attribute Certificate) 特权属性证书保护 功能，PAC主要是规定服务器将票据发送给kerberos服务，由 kerberos服务验证票据是否有效。</p>
+<p>开启方式:</p>
+<p>将注册表中</p>
+<p>HKEY_LOCAL_MACHINE\SYSTEM \ CurrentControlSet\Control\Lsa\Kerberos\Parameters</p>
+<p>中的ValidateKdcPacSignature设置为1。<br>3.侦测</p>
+<p>监视异常的Kerberos活动，例如Windows登录/注销事件中的格式错误或空白字段（事件ID 4624、4634、4672）。[2]</p>
+<p>监视与lsass.exe交互的意外进程。[6]诸如Mimikatz之类的通用凭证转储者通过打开进程，找到LSA秘密密钥并解密内存中存储凭证详细信息（包括Kerberos票证）的部分，来访问LSA子系统服务（LSASS）进程。</p>
+<p>4.2 黄金票据(Silver Tickets)防御</p>
+<p>1.限制域管理员登录到除域控制器和少数管理服务器以外的任何其他计算机。这降低攻击者通过横向扩展，获取域管理员的账户，获得访问域控制器的Active Directory的ntds.dit的权限。如果攻击者无法访问AD数据库（ntds.dit文件），则无法获取到KRBTGT帐户密码。</p>
+<p>2.建议定期更改KRBTGT密码。更改一次，然后让AD备份，并在12到24小时后再次更改它。这个过程应该对系统环境没有影响。这个过程应该是确保KRBTGT密码每年至少更改一次的标准方法。</p>
+<p>3.一旦攻击者获得了KRBTGT帐号密码哈希的访问权限，就可以随意创建黄金票据。通过快速更改KRBTGT密码两次，使任何现有的黄金票据（以及所有活动的Kerberos票据）失效。这将使所有Kerberos票据无效，并消除攻击者使用其KRBTGT创建有效金票的能力。</p>
+<p>4.侦测<br>监视异常的Kerberos活动，例如Windows登录/注销事件（事件ID 4624、4672、4634）中的格式错误或空白字段，TGT中的RC4加密以及TGS请求，而无需前面的TGT请求。</p>
+<p>监视TGT票证的生存期，以获取与默认域持续时间不同的值。</p>
+<h3 id="5-0-Kerberoasting攻击"><a href="#5-0-Kerberoasting攻击" class="headerlink" title="5.0 Kerberoasting攻击"></a>5.0 Kerberoasting攻击</h3><p><img src="/images/pasted-11.png" alt="upload successful"></p>
+<p>Kerberos协议在请求访问某个服务时存在一个缺陷，Kerberoasting正是利用这个缺陷的一种攻击技术。</p>
+<p>我们可以破解服务帐户密码，而无需拿到管理员的账号密码哈希。我们通过在主机中使用服务帐户请求TGS票证多项服务。从内存中导出TGS票证，然后破解就可以。也可以通过嗅探网络流量并脱机获取使用RC4_HMAC_MD5加密的Kerberos TGS票证来攻击。</p>
+<p>5.1 攻击流程<br>1、用户将AS-REQ数据包发送给KDC（Key Distribution Centre，密钥分发中心，此处为域控），进行身份认证。</p>
+<p>2、KDC验证用户的凭据，如果凭据有效，则返回TGT（Ticket-Granting Ticket，票据授予票据）。</p>
+<p>3、如果用户想通过身份认证，访问某个服务（如IIS），那么他需要发起（Ticket Granting Service，票据授予服务）请求，请求中包含TGT以及所请求服务的SPN（Service Principal Name，服务主体名称）。</p>
+<p>4、如果TGT有效并且没有过期，TGS会创建用于目标服务的一个服务票据。服务票据使用服务账户的凭据进行加密。</p>
+<p>5、用户收到包含加密服务票据的TGS响应数据包。</p>
+<p>6、最后，服务票据会转发给目标服务，然后使用服务账户的凭据进行解密。</p>
+<p>整个过程比较简单，我们需要注意的是，服务票据会使用服务账户的哈希进行加密，这样一来，Windows域中任何经过身份验证的用户都可以从TGS处请求服务票据，然后离线暴力破解。</p>
+<p>5.2 实战手法</p>
+<p>1.SPN扫描具有服务帐户的SQL Server</p>
+<p><img src="/images/pasted-12.png" alt="upload successful"></p>
+<p>2.确定目标之后，我们使用PowerShell请求此服务主体名称（SPN）的服务票证。</p>
+<p><img src="/images/pasted-13.png" alt="upload successful"></p>
+<p>查看数据包捕获，我们可以看到Kerberos通信，并注意到票证是RC4-HMAC-MD5。</p>
+<p><img src="/images/pasted-14.png" alt="upload successful"></p>
+<p>3.客户端收到票证后，我们可以使用Mimikatz（或其他）导出用户存储空间中的所有Kerberos票证。</p>
+<p><img src="/images/pasted-15.png" alt="upload successful"></p>
+<p>4.将服务票证导出到文件后，可以将该文件发送到运行带有Kerberoast的Kali Linux的攻击者计算机。破解与票证（文件）相关的服务帐户的密码。</p>
+<p><img src="/images/pasted-16.png" alt="upload successful"><br>tips:</p>
+<p>由于服务帐户通常在许多企业中被过度使用，并且密码通常很弱，因此这是我们从域用户转到域管理员的简便方法。</p>
+<p>5.3 防御手法<br>确保所有服务帐户（具有服务主体名称的用户帐户）使用的长而复杂的密码必须大于25个字符，最好为30个或更多。这使得破解这些密码更加困难。具有较高AD权限的服务帐户应重点确保其具有长而复杂的密码。确保定期更改所有服务帐户密码（每年至少更改一次）。如果可能，请使用组管理的服务帐户，这些帐户具有随机的复杂密码（&gt; 100个字符），并由Active Directory自动管理。</p>
+<p>5.4 检测<br>由于要在用户需要访问资源时始终请求服务票证（Kerberos TGS票证），因此检测要困难得多。<br>寻找带有RC4加密的TGS-REQ数据包可能是最好的方法，尽管可能会出现误报。<br>通过启用Kerberos服务票证请求监视（“审核Kerberos服务票证操作”）并搜索具有过多4769事件（Eventid 4769 “已请求Kerberos服务票证”）的用户，可以监视Active Directory中的多个Kerberos服务票证请求。</p>
+<h3 id="6-0-AS-REP-Roasting"><a href="#6-0-AS-REP-Roasting" class="headerlink" title="6.0 AS-REP Roasting"></a>6.0 AS-REP Roasting</h3><p>AS-REP Roasting是针对不需要预身份验证的用户帐户的Kerberos攻击。</p>
+<p>预身份验证是Kerberos身份验证的第一步，旨在防止暴力破解密码猜测攻击。</p>
+<p>在预身份验证期间，用户将输入其密码，该密码将用于加密时间戳，然后域控制器将尝试对其进行解密，并验证是否使用了正确的密码，并且该密码不会重播先前的请求。发出TGT，供用户将来使用。</p>
+<p>如果禁用了预身份验证（DONT_REQ_PREAUTH），则我们可以为任何用户请求身份验证数据，那么DC将返回的加密TGT，我们就可以离线暴力破解的加密TGT。</p>
+<p>默认情况下，Active Directory中需要预身份验证。但是，可以通过每个用户帐户上的用户帐户控制设置来控制此设置。</p>
+<p>Under normal operations in a Windows Kerberos environment, when you<br>initiate a TGT request for a given user (Kerberos AS-REQ, message type<br>10) you have to supply a timestamp encrypted with that user’s<br>key/password. This structure is PA-ENC-TIMESTAMP and is embedded in<br>PA-DATA (preauthorization data) of the AS-REQ – both of these<br>structure are described in detail on page 60 of RFC4120 and were<br>introduced in Kerberos Version 5. The KDC then decrypts the timestamp<br>to verify if the subject making the AS-REQ really is that user, and<br>then returns the AS-REP and continues with normal authentication<br>procedures.</p>
+<p>Note: the KDC does increase the badpwdcount attribute for any<br>incorrect PA-ENC-TIMESTAMP attempts, so we can’t use this as a method<br>to online brute-force account passwords :(</p>
+<p>The reason for Kerberos preauthentication is to prevent offline<br>password guessing. While the AS-REP ticket itself is encrypted with<br>the service key (in this case the krbtgt hash) the AS-REP “encrypted<br>part” is signed with the client key, i.e. the key of the user we send<br>an AS-REQ for. If preauthentication isn’t enabled, an attacker can<br>send an AS-REQ for any user that doesn’t have preauth required and<br>receive a bit of encrypted material back that can be cracked offline<br>to reveal the target user’s password.</p>
+<p>在现代Windows环境中，所有用户帐户都需要Kerberos预身份验证，但默认情况下，Windows会在不进行预身份验证的情况下尝试进行AS-REQ / AS-REP交换，而后一次在第二次提交时提供加密的时间戳：</p>
+<p>6.1 实战手法</p>
+<ol>
+<li>用Rubeus进行AS-REP</li>
+</ol>
+<p>Rubeus是用于原始Kerberos交互和滥用的C＃工具集。</p>
+<p> Rubeus.exe asreproast</p>
+<p><img src="/images/pasted-17.png" alt="upload successful"><br>这将自动查找所有不需要预身份验证的帐户，并提取脱机破解所需的加密TGT数据</p>
+<p>我们也可以使用以下命令以Hashcat可以离线破解的格式提取数据对这种哈希执行快速的暴力破解密码。</p>
+<p>Rubeus.exe asreproast /format:hashcat /outfile:C:Temphashes.txt<br>它将AS-REP哈希信息输出到文本文件。</p>
+<p><img src="/images/pasted-18.png" alt="upload successful"></p>
+<p>对特定用户进行攻击</p>
+<p>Rubeus.exe asreproast /user:TestOU3user</p>
+<p><img src="/images/pasted-19.png" alt="upload successful"><br>6.2 防御手法<br>识别不需要预身份验证的帐户<br>免受此类攻击的明显保护是找到并删除设置为不需要Kerberos预身份验证的用户帐户的所有实例。</p>
+<h3 id="7-0-MS14-068伪造的PAC利用"><a href="#7-0-MS14-068伪造的PAC利用" class="headerlink" title="7.0 MS14-068伪造的PAC利用"></a>7.0 MS14-068伪造的PAC利用</h3><h3 id="8-0-钻石PAC-使用金票和MS14-068伪造PAC的混合攻击"><a href="#8-0-钻石PAC-使用金票和MS14-068伪造PAC的混合攻击" class="headerlink" title="8.0 钻石PAC 使用金票和MS14-068伪造PAC的混合攻击"></a>8.0 钻石PAC 使用金票和MS14-068伪造PAC的混合攻击</h3><h3 id="9-0-Skeleton-Key攻击"><a href="#9-0-Skeleton-Key攻击" class="headerlink" title="9.0 Skeleton Key攻击"></a>9.0 Skeleton Key攻击</h3>
                 
             </div>
             <hr/>
@@ -604,7 +731,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">13summer</a>
+                    <a href="/about" rel="external nofollow noreferrer">thirteensummer</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -614,7 +741,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://thirteensummer.github.io/2021/01/17/hexo-bo-ke-ge-chong-cha-jian-an-zhuang-he-wen-ti-jie-huo/">https://thirteensummer.github.io/2021/01/17/hexo-bo-ke-ge-chong-cha-jian-an-zhuang-he-wen-ti-jie-huo/</a>
+                    <a href="https://thirteensummer.github.io/2021/03/23/kerberos-zhi-wei-suo-gong-ji/">https://thirteensummer.github.io/2021/03/23/kerberos-zhi-wei-suo-gong-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -627,7 +754,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">13summer</a>
+                    <a href="/about" target="_blank">thirteensummer</a>
                     !
                 </span>
             </div>
@@ -651,15 +778,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
-                                </a>
-                            
-                                <a href="/tags/%E8%A7%A3%E6%83%91/">
-                                    <span class="chip bg-color">解惑</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -831,13 +950,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/01/20/honggfuzz-wen-ti-jie-huo-1/">
+                <a href="/2021/03/23/cnvd-2021-10543-messagesolution-you-jian-gui-dang-xi-tong-eea-lou-dong-fu-xian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="honggfuzz_问题解惑">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="CNVD-2021-10543  MessageSolution 邮件归档系统EEA 漏洞复现">
                         
-                        <span class="card-title">honggfuzz_问题解惑</span>
+                        <span class="card-title">CNVD-2021-10543  MessageSolution 邮件归档系统EEA 漏洞复现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -848,7 +967,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
                         </span>
                         <span class="publish-author">
                             
@@ -868,13 +987,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/16/wang-ye-bo-ke-jia-mi-de-ge-chong-zi-shi/">
+                <a href="/2021/01/20/honggfuzz-wen-ti-jie-huo-1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="网页博客加密的各种姿势">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="honggfuzz_问题解惑">
                         
-                        <span class="card-title">网页博客加密的各种姿势</span>
+                        <span class="card-title">honggfuzz_问题解惑</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -885,23 +1004,15 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            13summer
+                            thirteensummer
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%8A%A0%E5%AF%86/">
-                        <span class="chip bg-color">加密</span>
-                    </a>
-                    
                 </div>
                 
             </div>
