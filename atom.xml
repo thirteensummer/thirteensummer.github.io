@@ -6,7 +6,7 @@
   <link href="https://thirteensummer.github.io/atom.xml" rel="self"/>
   
   <link href="https://thirteensummer.github.io/"/>
-  <updated>2021-03-23T17:34:34.654Z</updated>
+  <updated>2021-03-30T03:13:39.470Z</updated>
   <id>https://thirteensummer.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Apache-Sole 任意文件读取漏洞</title>
+    <link href="https://thirteensummer.github.io/2021/03/29/apache-sole-ren-yi-wen-jian-du-qu-lou-dong/"/>
+    <id>https://thirteensummer.github.io/2021/03/29/apache-sole-ren-yi-wen-jian-du-qu-lou-dong/</id>
+    <published>2021-03-29T17:31:00.000Z</published>
+    <updated>2021-03-30T03:13:39.470Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;Apache-Sole-任意文件读取漏洞&quot;&gt;&lt;a href=&quot;#Apache-Sole-任意文件读取漏洞&quot; class=&quot;headerlink&quot; title=&quot;Apache-Sole 任意文件读取漏洞&quot;&gt;&lt;/a&gt;Apache-Sole</summary>
+        
+      
+    
+    
+    
+    
+    <category term="任意文件读取" scheme="https://thirteensummer.github.io/tags/%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello 暗影LXH十三先生</title>
