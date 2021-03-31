@@ -6,7 +6,7 @@
   <link href="https://thirteensummer.github.io/atom.xml" rel="self"/>
   
   <link href="https://thirteensummer.github.io/"/>
-  <updated>2021-03-30T17:03:13.549Z</updated>
+  <updated>2021-03-31T09:28:12.525Z</updated>
   <id>https://thirteensummer.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>入侵检测-windows</title>
+    <link href="https://thirteensummer.github.io/2021/03/31/ru-qin-jian-ce-windows/"/>
+    <id>https://thirteensummer.github.io/2021/03/31/ru-qin-jian-ce-windows/</id>
+    <published>2021-03-31T08:40:22.000Z</published>
+    <updated>2021-03-31T09:28:12.525Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;window入侵排查&quot;&gt;&lt;a href=&quot;#window入侵排查&quot; class=&quot;headerlink&quot; title=&quot;window入侵排查&quot;&gt;&lt;/a&gt;window入侵排查&lt;/h3&gt;&lt;h4 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>入侵检测-linux</title>
