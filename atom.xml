@@ -6,7 +6,7 @@
   <link href="https://thirteensummer.github.io/atom.xml" rel="self"/>
   
   <link href="https://thirteensummer.github.io/"/>
-  <updated>2021-05-18T06:01:13.346Z</updated>
+  <updated>2021-06-09T00:42:57.987Z</updated>
   <id>https://thirteensummer.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux　计时任务</title>
+    <link href="https://thirteensummer.github.io/2021/06/08/linux-ji-shi-ren-wu/"/>
+    <id>https://thirteensummer.github.io/2021/06/08/linux-ji-shi-ren-wu/</id>
+    <published>2021-06-08T17:06:03.000Z</published>
+    <updated>2021-06-09T00:42:57.987Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;linux-计时任务&quot;&gt;&lt;a href=&quot;#linux-计时任务&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>linux常用命令</title>
+    <link href="https://thirteensummer.github.io/2021/06/07/linux-chang-yong-ming-ling/"/>
+    <id>https://thirteensummer.github.io/2021/06/07/linux-chang-yong-ming-ling/</id>
+    <published>2021-06-07T08:12:15.000Z</published>
+    <updated>2021-06-07T08:20:09.800Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;查看CentOS系统配置情况命令&quot;&gt;&lt;a href=&quot;#查看CentOS系统配置情况命令&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>mysql写getshell--phpmyadmin</title>
